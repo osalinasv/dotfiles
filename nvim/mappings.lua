@@ -2,11 +2,11 @@ local M = {}
 
 M.disabled = {
   n = {
-    ["<leader>/"] = ""
+    ["<leader>/"] = "",
   },
   v = {
-    ["<leader>/"] = ""
-  }
+    ["<leader>/"] = "",
+  },
 }
 
 M.abc = {
@@ -14,14 +14,14 @@ M.abc = {
     ["<A-j>"] = { ":m+<CR>==", "Move line down" },
     ["<A-down>"] = { ":m+<CR>==", "Move line down" },
     ["<A-k>"] = { ":m-2<CR>==", "Move line up" },
-    ["<A-up>"] = { ":m-2<CR>==", "Move line up" }
+    ["<A-up>"] = { ":m-2<CR>==", "Move line up" },
   },
   i = {
     ["<A-j>"] = { "<Esc>:m+<CR>==gi", "Move line down" },
     ["<A-down>"] = { "<Esc>:m+<CR>==gi", "Move line down" },
     ["<A-k>"] = { "<Esc>:m-2<CR>==gi", "Move line up" },
-    ["<A-up>"] = { "<Esc>:m-2<CR>==gi", "Move line up" }
-  }
+    ["<A-up>"] = { "<Esc>:m-2<CR>==gi", "Move line up" },
+  },
 }
 
 M.comment = {
@@ -29,18 +29,18 @@ M.comment = {
 
   n = {
     ["<C-_>"] = {
-      function ()
+      function()
         require("Comment.api").toggle.linewise.current()
       end,
-      "Toggle comment"
-    }
+      "Toggle comment",
+    },
   },
   v = {
     ["<C-_>"] = {
       "<ESC><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>",
       "Toggle comment",
-    }
-  }
+    },
+  },
 }
 
 M.lspconfig = {
@@ -52,22 +52,8 @@ M.lspconfig = {
         require("nvchad.renamer").open()
       end,
       "LSP rename",
-    }
-  }
+    },
+  },
 }
-
--- M.dap = {
---   plugin = true,
---   n = {
---     ["<leader>db"] = {
---       "<cmd> DapToggleBreakpoint <CR>",
---       "Add breakpoint at line"
---     },
---     ["<leader>dr"] = {
---       "<cmd> DapContinue <CR>",
---       "Run or continue the debugger"
---     }
---   },
--- }
 
 return M
