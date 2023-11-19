@@ -25,12 +25,18 @@ local plugins = {
     "williamboman/mason.nvim",
     opts = {
       ensure_installed = {
+        "omnisharp",
         "eslint-lsp",
         "lua-language-server",
         "astro-language-server",
         "typescript-language-server",
       },
     },
+  },
+  {
+    "Hoffs/omnisharp-extended-lsp.nvim",
+    event = "VeryLazy",
+    lazy = true
   },
   {
     "jay-babu/mason-null-ls.nvim",

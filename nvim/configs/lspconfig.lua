@@ -3,6 +3,7 @@ local on_attach = config.on_attach
 local capabilities = config.capabilities
 
 local lspconfig = require("lspconfig")
+local pid = vim.fn.getpid()
 
 local function organize_imports()
   local params = {
@@ -31,4 +32,15 @@ lspconfig.tsserver.setup({
 lspconfig.astro.setup({
   on_attach = on_attach,
   capabilities = capabilities,
+})
+
+lspconfig.omnisharp.setup({
+  on_attach = on_attach,
+  capabilities = capabilities,
+  cmd = { "OmniSharp.exe", "--languageserver", "--hostPID", tostring(pid) },
+  enable_import_completion = true,
+  organize_imports_on_format = true,
+  handlers = {
+    ["textDocument/definition"] = require("omnisharp_extended").handler,
+  },
 })
