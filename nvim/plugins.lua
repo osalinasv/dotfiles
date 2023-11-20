@@ -20,6 +20,12 @@ local plugins = {
       },
       sync_install = false,
     },
+    config = function(_, opts)
+      dofile(vim.g.base46_cache .. "syntax")
+
+      opts.autotag = { enable = true }
+      require("nvim-treesitter.configs").setup(opts)
+    end,
   },
   {
     "williamboman/mason.nvim",
@@ -36,7 +42,7 @@ local plugins = {
   {
     "Hoffs/omnisharp-extended-lsp.nvim",
     event = "VeryLazy",
-    lazy = true
+    lazy = true,
   },
   {
     "jay-babu/mason-null-ls.nvim",
