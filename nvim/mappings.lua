@@ -3,13 +3,14 @@ local M = {}
 M.disabled = {
   n = {
     ["<leader>/"] = "",
+    ["<leader>fm"] = "",
   },
   v = {
     ["<leader>/"] = "",
   },
 }
 
-M.abc = {
+M.custom = {
   n = {
     ["<A-j>"] = { ":m+<CR>==", "Move line down" },
     ["<A-down>"] = { ":m+<CR>==", "Move line down" },
