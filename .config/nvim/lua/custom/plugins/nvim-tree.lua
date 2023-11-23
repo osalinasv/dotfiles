@@ -16,20 +16,12 @@ return {
         },
         icons = {
           glyphs = {
-            default = "󰈚",
-            symlink = "",
             folder = {
-              default = "",
-              empty = "",
-              empty_open = "",
-              open = "",
-              symlink = "",
-              symlink_open = "",
               arrow_open = "",
               arrow_closed = "",
             },
             git = {
-              unstaged = "󰛄",
+              unstaged = "*",
               staged = "✓",
               unmerged = "",
               renamed = "➜",
@@ -39,6 +31,10 @@ return {
             },
           },
         },
+      },
+      filters = {
+        git_ignored = false,
+        custom = { "\\.git" },
       },
       -- disable window_picker for explorer to work well with window splits
       actions = {
