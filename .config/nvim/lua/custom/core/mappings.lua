@@ -16,6 +16,9 @@ keymap.set("n", "<C-A-right>", "<C-w>l", { desc = "Window right" })
 keymap.set("n", "<C-A-down>", "<C-w>j", { desc = "Window down" })
 keymap.set("n", "<C-A-up>", "<C-w>k", { desc = "Window up" })
 
+keymap.set("n", "<Tab>", ":BufferLineCycleNext<cr>", { desc = "Go to next buffer" })
+keymap.set("n", "<S-Tab>", ":BufferLineCyclePrev<cr>", { desc = "Go to previoys buffer" })
+
 keymap.set("n", "<leader>to", "<cmd>tabnew<CR>", { desc = "Open new tab" })
 keymap.set("n", "<leader>tx", "<cmd>tabclose<CR>", { desc = "Close current tab" })
 keymap.set("n", "<leader>tn", "<cmd>tabn<CR>", { desc = "Go to next tab" })
