@@ -17,7 +17,7 @@ opt.softtabstop = 2
 opt.tabstop = 2
 
 -- line wrapping
-opt.wrap = true
+opt.wrap = false
 
 -- search settings
 opt.ignorecase = true

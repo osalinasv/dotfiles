@@ -7,5 +7,5 @@ $global:NVIM = "$HOME\AppData\Local\nvim"
 # Aliases
 Set-Alias vim nvim
 
+# Function Aliases
 function la() { ls -force }
-

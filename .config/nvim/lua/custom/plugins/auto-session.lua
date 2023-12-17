@@ -1,6 +1,7 @@
 return {
   "rmagatti/auto-session",
   event = "VeryLazy",
+  enabled = false,
   config = function()
     local function change_nvim_tree_dir()
       local api = require("nvim-tree.api")
