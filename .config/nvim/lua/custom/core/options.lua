@@ -32,7 +32,7 @@ opt.background = "dark"
 opt.signcolumn = "yes"
 
 -- editor
-opt.colorcolumn = "120"
+opt.colorcolumn = "80"
 opt.list = true
 opt.listchars:append({ lead = "·" })
 
