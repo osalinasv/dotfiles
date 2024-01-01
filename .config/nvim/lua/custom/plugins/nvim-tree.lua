@@ -7,9 +7,6 @@ return {
   },
   config = function()
     require("nvim-tree").setup({
-      view = {
-        width = 35,
-      },
       renderer = {
         indent_markers = {
           enable = true,

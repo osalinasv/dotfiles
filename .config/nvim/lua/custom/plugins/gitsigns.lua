@@ -1,5 +1,7 @@
 return {
   "lewis6991/gitsigns.nvim",
+  lazy = true,
+  event = "VeryLazy",
   ft = { "gitcommit", "diff" },
   init = function()
     -- load gitsigns only when a git file is opened
