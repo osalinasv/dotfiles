@@ -1,7 +1,8 @@
 [Console]::OutputEncoding = [Text.Encoding]::UTF8
 
 try {
-  oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH/tokyonight_storm.omp.json" | Invoke-Expression
+  # oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH/half-life.omp.json" | Invoke-Expression
+  oh-my-posh init pwsh --config "$HOME\Code\dotfiles\theme.omp.json" | Invoke-Expression
 
   Import-Module git-aliases -DisableNameChecking
   Import-Module DirColors
