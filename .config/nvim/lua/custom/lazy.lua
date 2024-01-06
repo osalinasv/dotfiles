@@ -12,6 +12,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({ import = "custom.plugins" }, {
+  debug = false,
   install = {
     colorscheme = { "catppuccin" },
   },
@@ -21,5 +22,21 @@ require("lazy").setup({ import = "custom.plugins" }, {
   },
   change_detection = {
     notify = false,
+  },
+  performance = {
+    cache = {
+      enabled = true,
+    },
+    rtp = {
+      disabled_plugins = {
+        "gzip",
+        "netrwPlugin",
+        "rplugin",
+        "tarPlugin",
+        "tohtml",
+        "tutor",
+        "zipPlugin",
+      },
+    },
   },
 })

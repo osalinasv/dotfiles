@@ -9,6 +9,7 @@ return {
   config = function()
     local telescope = require("telescope")
     local actions = require("telescope.actions")
+    local builtin = require("telescope.builtin")
 
     telescope.setup({
       defaults = {
@@ -38,6 +39,7 @@ return {
             ["<C-k>"] = actions.move_selection_previous, -- move to prev result
             ["<C-j>"] = actions.move_selection_next, -- move to next result
             ["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
+            ["<C-h>"] = "which_key",
             ["<Esc>"] = actions.close,
           },
         },
@@ -45,16 +47,14 @@ return {
     })
 
     telescope.load_extension("fzf")
-
     local keymap = vim.keymap
 
-    keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { desc = "Fuzzy find files in cwd" })
-    keymap.set("n", "<leader>fr", "<cmd>Telescope oldfiles<cr>", { desc = "Fuzzy find recent files" })
-    keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep<cr>", { desc = "Find string in cwd" })
-    keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<cr>", { desc = "Find string in buffers" })
-    keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string<cr>", { desc = "Find string under cursor in cwd" })
+    keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Fuzzy find files in cwd" })
+    keymap.set("n", "<leader>fs", builtin.live_grep, { desc = "Find string in cwd" })
+    keymap.set("n", "<leader>fb", builtin.buffers, { desc = "Find string in buffers" })
+    keymap.set("n", "<leader>fc", builtin.grep_string, { desc = "Find string under cursor in cwd" })
 
-    keymap.set("n", "<leader>gc", "<cmd> Telescope git_commits <CR>", { desc = "Git commits" })
-    keymap.set("n", "<leader>gs", "<cmd> Telescope git_status <CR>", { desc = "Git status" })
+    keymap.set("n", "<leader>gc", builtin.git_commits, { desc = "Git commits" })
+    keymap.set("n", "<leader>gs", builtin.git_status, { desc = "Git status" })
   end,
 }

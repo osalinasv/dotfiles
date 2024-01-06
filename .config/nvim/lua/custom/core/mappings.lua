@@ -1,11 +1,12 @@
-vim.g.mapleader = " "
 local keymap = vim.keymap
+local function opts(desc)
+  return { desc = desc, noremap = true, nowait = true }
+end
 
-keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights" })
+-- Search
+keymap.set("n", "<leader>nh", ":nohl<CR>", opts("Clear highlights"))
 
-keymap.set("n", "<leader>+", "<C-a>", { desc = "Increment number" })
-keymap.set("n", "<leader>-", "<C-x>", { desc = "Decrement number" })
-
+-- Override copy on delete
 keymap.set("n", "d", '"_d')
 keymap.set("n", "D", '"_D')
 keymap.set("v", "d", '"_d')
@@ -13,27 +14,32 @@ keymap.set("n", "<leader>d", '""_d')
 keymap.set("n", "<leader>D", '""_D')
 keymap.set("v", "<leader>d", '""_d')
 
-keymap.set("n", "<C-s>", ":w<CR>", { desc = "Save current buffer" })
+-- IDE-like
+keymap.set("n", "<C-s>", ":w<CR>", opts("Save current buffer"))
+keymap.set("n", "<C-a>", "gg<S-v>G", opts("Select all"))
+keymap.set("n", "<A-down>", ":m+<CR>==", opts("Move line down"))
+keymap.set("n", "<A-up>", ":m-2<CR>==", opts("Move line up"))
 
-keymap.set("n", "<leader>sv", "<C-w>v", { desc = "Split window vertically" })
-keymap.set("n", "<leader>sh", "<C-w>s", { desc = "Split window horizontally" })
-keymap.set("n", "<leader>se", "<C-w>=", { desc = "Make splits equal size" })
-keymap.set("n", "<leader>sx", "<cmd>close<CR>", { desc = "Close current split" })
+-- Split windows
+keymap.set("n", "<leader>sv", "<C-w>v", opts("Split window vertically"))
+keymap.set("n", "<leader>sh", "<C-w>s", opts("Split window horizontally"))
+keymap.set("n", "<leader>sx", "<cmd>close<CR>", opts("Close current split"))
 
-keymap.set("n", "[b", ":bp<CR>", { desc = "Previous buffer" })
-keymap.set("n", "]b", ":bn<CR>", { desc = "Next buffer" })
+-- Move windows
+keymap.set("n", "<C-S-left>", "<C-w>h", opts("Window left"))
+keymap.set("n", "<C-S-right>", "<C-w>l", opts("Window right"))
+keymap.set("n", "<C-S-down>", "<C-w>j", opts("Window down"))
+keymap.set("n", "<C-S-up>", "<C-w>k", opts("Window up"))
 
-keymap.set("n", "<C-S-left>", "<C-w>h", { desc = "Window left" })
-keymap.set("n", "<C-S-right>", "<C-w>l", { desc = "Window right" })
-keymap.set("n", "<C-S-down>", "<C-w>j", { desc = "Window down" })
-keymap.set("n", "<C-S-up>", "<C-w>k", { desc = "Window up" })
+-- Resize windows
+keymap.set("n", "<C-w><left>", "<C-w><", opts("Resize window on left"))
+keymap.set("n", "<C-w><right>", "<C-w>>", opts("Resize window on right"))
+keymap.set("n", "<C-w><up>", "<C-w>+", opts("Resize window on top"))
+keymap.set("n", "<C-w><down>", "<C-w>-", opts("Resize window on bottom"))
 
-keymap.set("n", "<A-j>", ":m+<CR>==", { desc = "Move line down" })
-keymap.set("n", "<A-down>", ":m+<CR>==", { desc = "Move line down" })
-keymap.set("n", "<A-k>", ":m-2<CR>==", { desc = "Move line up" })
-keymap.set("n", "<A-up>", ":m-2<CR>==", { desc = "Move line up" })
+-- Navigation
+keymap.set("n", "[b", ":bp<CR>", opts("Previous buffer"))
+keymap.set("n", "]b", ":bn<CR>", opts("Next buffer"))
 
-keymap.set("v", "<A-j>", "<Esc>:m+<CR>==gi", { desc = "Move line down" })
-keymap.set("v", "<A-down>", "<Esc>:m+<CR>==gi", { desc = "Move line down" })
-keymap.set("v", "<A-k>", "<Esc>:m-2<CR>==gi", { desc = "Move line up" })
-keymap.set("v", "<A-up>", "<Esc>:m-2<CR>==gi", { desc = "Move line up" })
+keymap.set("n", "<C-down>", "<C-d>", opts("Move down 1/2 screen"))
+keymap.set("n", "<C-up>", "<C-u>", opts("Move up 1/2 screen"))
