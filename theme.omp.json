@@ -1,7 +1,36 @@
 {
   "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "console_title_template": "{{ .Folder }}",
   "final_space": false,
   "version": 2,
+  "palette": {
+    "rosewater": "#f5e0dc",
+    "flamingo": "#f2cdcd",
+    "pink": "#f5c2e7",
+    "mauve": "#cba6f7",
+    "red": "#f38ba8",
+    "maroon": "#eba0ac",
+    "peach": "#fab387",
+    "yellow": "#f9e2af",
+    "green": "#a6e3a1",
+    "teal": "#94e2d5",
+    "sky": "#89dceb",
+    "sapphire": "#74c7ec",
+    "blue": "#89b4fa",
+    "lavender": "#b4befe",
+    "text": "#cdd6f4",
+    "subtext1": "#bac2de",
+    "subtext0": "#a6adc8",
+    "overlay2": "#9399b2",
+    "overlay1": "#7f849c",
+    "overlay0": "#6c7086",
+    "surface2": "#585b70",
+    "surface1": "#45475a",
+    "surface0": "#313244",
+    "base": "#1e1e2e",
+    "mantle": "#181825",
+    "crust": "#11111b"
+  },
   "blocks": [
     {
       "type": "prompt",
@@ -10,7 +39,7 @@
         {
           "type": "path",
           "style": "plain",
-          "foreground": "#cba6f7",
+          "foreground": "p:mauve",
           "template": "{{ .Path }} ",
           "properties": {
             "style": "full"
@@ -19,14 +48,14 @@
         {
           "type": "git",
           "style": "plain",
-          "foreground": "#89dceb",
+          "foreground": "p:sapphire",
           "foreground_templates": [
-            "{{ if or (.Working.Changed) (.Staging.Changed) }}red{{ end }}",
+            "{{ if or (.Working.Changed) (.Staging.Changed) }}p:red{{ end }}",
             "{{ if and (gt .Ahead 0) (gt .Behind 0)}}foreground{{ end }}",
-            "{{ if gt .Ahead 0 }}green{{ end }}",
-            "{{ if gt .Behind 0 }}yellow{{ end }}"
+            "{{ if gt .Ahead 0 }}p:green{{ end }}",
+            "{{ if gt .Behind 0 }}p:yellow{{ end }}"
           ],
-          "template": "<white>on</> {{ .HEAD }}{{ if .Staging.Changed}}<green> {{ .Staging.String }}</>{{ end }}{{ if .Working.Changed}}<yellow> {{ .Working.String }}</>{{ end }} ",
+          "template": "<white>on</> {{ .HEAD }}{{ if .Staging.Changed}}<p:green> {{ .Staging.String }}</>{{ end }}{{ if .Working.Changed}}<p:yellow> {{ .Working.String }}</>{{ end }} ",
           "properties": {
             "fetch_status": true,
             "branch_icon": ""
@@ -35,7 +64,7 @@
         {
           "type": "text",
           "style": "plain",
-          "foreground": "#585b70",
+          "foreground": "p:surface2",
           "template": "$ "
         }
       ]

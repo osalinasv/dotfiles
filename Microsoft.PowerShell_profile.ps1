@@ -12,7 +12,17 @@ try {
 $global:NVIM = "$HOME\AppData\Local\nvim"
 
 # Aliases
+Set-Alias c Set-Location
+Set-Alias g git
+
 Set-Alias vim nvim
+Set-Alias v nvim
 
 # Function Aliases
-function la() { ls -force }
+function la { ls -force $args }
+
+# Functions
+function proj([string] $subdirectory) {
+  $fullPath = Join-Path -Path "$HOME\Code\" -ChildPath $subdirectory
+  Set-Location -Path $fullPath
+}
