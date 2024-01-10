@@ -35,7 +35,7 @@ return {
       keymap.set("n", "]d", vim.diagnostic.goto_next, opts("Go to next diagnostic"))
 
       keymap.set("n", "K", vim.lsp.buf.hover, opts("Show documentation for what is under cursor"))
-      keymap.set("n", "<leader>rs", ":LspRestart<CR>", opts("Restart LSP"))
+      keymap.set("n", "<leader>lr", ":LspRestart<CR>", opts("Restart LSP"))
     end
 
     -- used to enable autocompletion (assign to every lsp server config)

@@ -41,7 +41,6 @@ return {
         map("n", "<leader>hR", gs.reset_buffer, { desc = "Reset current buffer" })
 
         map("n", "<leader>hd", gs.diffthis, { desc = "Split view git diff buffer" })
-        map("n", "<leader>td", gs.toggle_deleted, { desc = "Toggle git deleted" })
       end,
     })
   end,

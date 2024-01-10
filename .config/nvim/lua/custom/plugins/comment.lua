@@ -17,7 +17,7 @@ return {
 
     local keymap = vim.keymap
     local function opts(desc)
-      return { desc = desc, noremap = true, nowait = true }
+      return { desc = desc, nowait = true }
     end
 
     keymap.set("n", "<C-_>", "<Plug>(comment_toggle_linewise_current)", opts("Toggle comment"))

@@ -4,7 +4,7 @@ return {
   event = "VeryLazy",
   config = function()
     require("toggleterm").setup({
-      open_mapping = [[<c-t>]],
+      open_mapping = [[<C-t>]],
       direction = "horizontal",
       close_on_exit = true,
     })
