@@ -8,32 +8,19 @@ return {
   },
   config = function()
     local telescope = require("telescope")
+    local config = require("telescope.config")
     local actions = require("telescope.actions")
     local builtin = require("telescope.builtin")
 
+    local vimgrep_arguments = { table.unpack(config.values.vimgrep_arguments) }
+    table.insert(vimgrep_arguments, "--hidden")
+    table.insert(vimgrep_arguments, "--glob")
+    table.insert(vimgrep_arguments, "!**/.git/*")
+
     telescope.setup({
       defaults = {
-        vimgrep_arguments = {
-          "rg",
-          "-L",
-          "--color=never",
-          "--no-heading",
-          "--with-filename",
-          "--line-number",
-          "--column",
-          "--smart-case",
-          "--no-ignore",
-          "--hidden",
-          "--glob",
-          "!**/.git/*",
-        },
-        path_display = { "truncate " },
+        vimgrep_arguments = vimgrep_arguments,
         file_ignore_patterns = { "node_modules" },
-        pickers = {
-          find_files = {
-            find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/*" },
-          },
-        },
         mappings = {
           i = {
             ["<C-k>"] = actions.move_selection_previous, -- move to prev result
@@ -42,6 +29,11 @@ return {
             ["<C-h>"] = "which_key",
             ["<Esc>"] = actions.close,
           },
+        },
+      },
+      pickers = {
+        find_files = {
+          find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/*" },
         },
       },
     })
@@ -54,7 +46,7 @@ return {
     keymap.set("n", "<leader>fb", builtin.buffers, { desc = "Find string in buffers" })
     keymap.set("n", "<leader>fc", builtin.grep_string, { desc = "Find string under cursor in cwd" })
 
-    keymap.set("n", "<leader>gc", builtin.git_commits, { desc = "Git commits" })
-    keymap.set("n", "<leader>gs", builtin.git_status, { desc = "Git status" })
+    -- keymap.set("n", "<leader>gc", builtin.git_commits, { desc = "Git commits" })
+    -- keymap.set("n", "<leader>gs", builtin.git_status, { desc = "Git status" })
   end,
 }
