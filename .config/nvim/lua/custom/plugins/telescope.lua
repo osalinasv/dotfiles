@@ -41,12 +41,9 @@ return {
     telescope.load_extension("fzf")
     local keymap = vim.keymap
 
-    keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Fuzzy find files in cwd" })
+    keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Find files in cwd" })
     keymap.set("n", "<leader>fs", builtin.live_grep, { desc = "Find string in cwd" })
-    keymap.set("n", "<leader>fb", builtin.buffers, { desc = "Find string in buffers" })
+    keymap.set("n", "<leader>fb", builtin.buffers, { desc = "Find opened buffers" })
     keymap.set("n", "<leader>fc", builtin.grep_string, { desc = "Find string under cursor in cwd" })
-
-    -- keymap.set("n", "<leader>gc", builtin.git_commits, { desc = "Git commits" })
-    -- keymap.set("n", "<leader>gs", builtin.git_status, { desc = "Git status" })
   end,
 }

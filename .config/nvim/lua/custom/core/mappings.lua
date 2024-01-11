@@ -17,6 +17,7 @@ keymap.set("v", "<leader>d", '""_d')
 -- IDE-like
 keymap.set("n", "<C-s>", ":w<CR>", opts("Save current buffer"))
 keymap.set("n", "<C-a>", "gg<S-v>G", opts("Select all"))
+keymap.set("n", "<C-q>", ":bd<CR>", opts("Close current buffer"))
 keymap.set("n", "<C-n>", ":enew<CR>", opts("Open new buffer"))
 keymap.set({ "n", "v" }, "<A-up>", ":m-2<CR>==", opts("Move line up"))
 keymap.set({ "n", "v" }, "<A-down>", ":m+<CR>==", opts("Move line down"))
