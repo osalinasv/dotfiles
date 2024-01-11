@@ -1,6 +1,6 @@
 local keymap = vim.keymap
 local function opts(desc)
-  return { desc = desc, nowait = true }
+  return { desc = desc, noremap = true }
 end
 
 -- Search
@@ -10,9 +10,6 @@ keymap.set("n", "<leader>nh", ":nohl<CR>", opts("Clear highlights"))
 keymap.set("n", "d", '"_d')
 keymap.set("n", "D", '"_D')
 keymap.set("v", "d", '"_d')
-keymap.set("n", "<leader>d", '""_d')
-keymap.set("n", "<leader>D", '""_D')
-keymap.set("v", "<leader>d", '""_d')
 
 -- IDE-like
 keymap.set("n", "<C-s>", ":w<CR>", opts("Save current buffer"))

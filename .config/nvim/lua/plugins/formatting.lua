@@ -31,6 +31,6 @@ return {
         async = false,
         timeout_ms = 3000,
       })
-    end, { desc = "Format file or range" })
+    end, { desc = "Format file or range", noremap = true })
   end,
 }

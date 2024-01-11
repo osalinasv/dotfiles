@@ -1,4 +1,10 @@
 table.unpack = table.unpack or unpack
 
-require("custom.core")
-require("custom.lazy")
+if vim.loader then
+  vim.loader.enable()
+end
+
+require("config.options")
+require("config.keymaps")
+require("config.autocmds")
+require("config.lazy")

@@ -15,7 +15,7 @@ return {
     local on_attach = function(_, bufnr)
       local keymap = vim.keymap
       local function opts(desc)
-        return { buffer = bufnr, desc = desc, nowait = true }
+        return { buffer = bufnr, desc = desc, noremap = true }
       end
 
       keymap.set("n", "gr", "<cmd>Telescope lsp_references<CR>", opts("Show LSP references"))

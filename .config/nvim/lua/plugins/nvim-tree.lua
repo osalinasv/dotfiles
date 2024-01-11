@@ -10,7 +10,7 @@ return {
 
     local function on_attach(bufnr)
       local function opts(desc)
-        return { desc = desc, buffer = bufnr, nowait = true }
+        return { desc = desc, buffer = bufnr, noremap = true }
       end
 
       api.config.mappings.default_on_attach(bufnr)
@@ -47,7 +47,7 @@ return {
 
     local keymap = vim.keymap
     local function opts(desc)
-      return { desc = desc, nowait = true }
+      return { desc = desc, noremap = true }
     end
 
     keymap.set("n", "<C-e>", api.tree.toggle, opts("Toggle file explorer"))
