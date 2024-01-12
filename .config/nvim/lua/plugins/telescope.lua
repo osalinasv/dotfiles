@@ -30,6 +30,18 @@ return {
             ["<Esc>"] = actions.close,
           },
         },
+        layout_strategy = "horizontal",
+        layout_config = {
+          horizontal = {
+            width = function(_, cols, _)
+              return math.min(160, math.floor(cols * 0.9))
+            end,
+            preview_width = function(_, cols, _)
+              return math.min(80, math.floor(cols * 0.6))
+            end,
+            preview_cutoff = 80,
+          },
+        },
       },
       pickers = {
         find_files = {
