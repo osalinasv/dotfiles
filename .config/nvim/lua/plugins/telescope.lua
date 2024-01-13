@@ -1,6 +1,7 @@
 return {
   "nvim-telescope/telescope.nvim",
   branch = "0.1.x",
+  lazy = false,
   dependencies = {
     "nvim-lua/plenary.nvim",
     "nvim-tree/nvim-web-devicons",
@@ -23,10 +24,7 @@ return {
         file_ignore_patterns = { "node_modules" },
         mappings = {
           i = {
-            ["<C-k>"] = actions.move_selection_previous, -- move to prev result
-            ["<C-j>"] = actions.move_selection_next, -- move to next result
-            ["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
-            ["<C-h>"] = "which_key",
+            ["<C-h>"] = actions.which_key,
             ["<Esc>"] = actions.close,
           },
         },
@@ -53,9 +51,9 @@ return {
     telescope.load_extension("fzf")
     local keymap = vim.keymap
 
-    keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Find files in cwd" })
-    keymap.set("n", "<leader>fs", builtin.live_grep, { desc = "Find string in cwd" })
+    keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Find files" })
+    keymap.set("n", "<leader>fs", builtin.live_grep, { desc = "Find string" })
     keymap.set("n", "<leader>fb", builtin.buffers, { desc = "Find opened buffers" })
-    keymap.set("n", "<leader>fc", builtin.grep_string, { desc = "Find string under cursor in cwd" })
+    keymap.set("n", "<leader>fc", builtin.grep_string, { desc = "Find string under cursor" })
   end,
 }

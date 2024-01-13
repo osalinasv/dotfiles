@@ -15,8 +15,8 @@ return {
 
       api.config.mappings.default_on_attach(bufnr)
       vim.keymap.set("n", "<C-t>", "", opts(""))
-      vim.keymap.set("n", "<C-e>", api.tree.toggle, opts("Toggle file explorer"))
-      vim.keymap.set("n", "<leader>ee", api.tree.toggle, opts("Toggle file explorer"))
+      vim.keymap.set("n", "<C-e>", api.tree.toggle, opts("Toggle explorer"))
+      vim.keymap.set("n", "<leader>ee", api.tree.toggle, opts("Toggle explorer"))
     end
 
     require("nvim-tree").setup({
@@ -50,8 +50,8 @@ return {
       return { desc = desc, noremap = true }
     end
 
-    keymap.set("n", "<C-e>", api.tree.toggle, opts("Toggle file explorer"))
-    keymap.set("n", "<leader>ee", api.tree.toggle, opts("Toggle file explorer"))
-    keymap.set("n", "<leader>er", api.tree.reload, opts("Refresh file explorer"))
+    keymap.set("n", "<C-e>", api.tree.toggle, opts("Toggle explorer"))
+    keymap.set("n", "<leader>ee", api.tree.toggle, opts("Toggle explorer"))
+    keymap.set("n", "<leader>er", api.tree.reload, opts("Refresh explorer"))
   end,
 }

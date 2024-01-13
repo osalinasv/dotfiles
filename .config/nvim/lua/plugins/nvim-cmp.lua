@@ -1,6 +1,6 @@
 return {
   "hrsh7th/nvim-cmp",
-  event = "InsertEnter",
+  event = { "InsertEnter" },
   dependencies = {
     "L3MON4D3/LuaSnip", -- snippet engine
     "onsails/lspkind.nvim", -- vs-code like pictograms
@@ -23,33 +23,24 @@ return {
       completion = {
         completeopt = "menu,menuone,preview,noselect",
       },
-      snippet = { -- configure how nvim-cmp interacts with snippet engine
+      snippet = {
         expand = function(args)
           luasnip.lsp_expand(args.body)
         end,
       },
       mapping = cmp.mapping.preset.insert({
-        ["<C-k>"] = cmp.mapping.select_prev_item(), -- previous suggestion
-        ["<C-j>"] = cmp.mapping.select_next_item(), -- next suggestion
-        ["<C-d>"] = cmp.mapping.scroll_docs(-4),
-        ["<C-f>"] = cmp.mapping.scroll_docs(4),
-        ["<C-Space>"] = cmp.mapping.complete(), -- show completion suggestions
-        ["<Esc>"] = cmp.mapping.abort(), -- close completion window
+        ["<C-up>"] = cmp.mapping.scroll_docs(-4),
+        ["<C-down>"] = cmp.mapping.scroll_docs(4),
+        ["<C-Space>"] = cmp.mapping.complete(),
+        ["<Esc>"] = cmp.mapping.abort(),
         ["<Tab>"] = cmp.mapping.confirm({ select = true }),
       }),
-      -- sources for autocompletion
       sources = cmp.config.sources({
         { name = "nvim_lsp" },
         { name = "luasnip" },
         { name = "buffer" },
         { name = "path" },
       }),
-      formatting = {
-        format = lspkind.cmp_format({
-          maxwidth = 50,
-          ellipsis_char = "...",
-        }),
-      },
     })
   end,
 }

@@ -20,7 +20,7 @@ return {
             gs.next_hunk()
           end)
           return "<Ignore>"
-        end, { expr = true, desc = "Go to next git hunk" })
+        end, { expr = true, desc = "Next git hunk" })
 
         map("n", "[c", function()
           if vim.wo.diff then
@@ -30,17 +30,17 @@ return {
             gs.prev_hunk()
           end)
           return "<Ignore>"
-        end, { expr = true, desc = "Go to previous git hunk" })
+        end, { expr = true, desc = "Prev git hunk" })
 
         map("n", "<leader>hs", gs.stage_hunk, { desc = "Stage git hunk" })
         map("n", "<leader>hr", gs.reset_hunk, { desc = "Reset git hunk" })
         map("n", "<leader>hu", gs.undo_stage_hunk, { desc = "Unstage git hunk" })
         map("n", "<leader>hp", gs.preview_hunk, { desc = "Preview git hunk" })
 
-        map("n", "<leader>hS", gs.stage_buffer, { desc = "Stage current buffer" })
-        map("n", "<leader>hR", gs.reset_buffer, { desc = "Reset current buffer" })
+        map("n", "<leader>hS", gs.stage_buffer, { desc = "Git stage buffer" })
+        map("n", "<leader>hR", gs.reset_buffer, { desc = "Git reset buffer" })
 
-        map("n", "<leader>hd", gs.diffthis, { desc = "Split view git diff buffer" })
+        map("n", "<leader>hd", gs.diffthis, { desc = "Split view git diff" })
       end,
     })
   end,
