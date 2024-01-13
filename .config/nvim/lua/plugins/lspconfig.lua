@@ -4,41 +4,47 @@ return {
   dependencies = {
     "hrsh7th/cmp-nvim-lsp",
     "Hoffs/omnisharp-extended-lsp.nvim",
-    { "antosha417/nvim-lsp-file-operations", config = true },
+    "antosha417/nvim-lsp-file-operations",
   },
   config = function()
     local pid = vim.fn.getpid()
-
     local lspconfig = require("lspconfig")
-    local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
-    local on_attach = function(_, bufnr)
-      local keymap = vim.keymap
-      local function opts(desc)
-        return { buffer = bufnr, desc = desc, noremap = true }
-      end
-
-      keymap.set("n", "gr", "<cmd>Telescope lsp_references<CR>", opts("Show references"))
-      keymap.set("n", "gD", vim.lsp.buf.declaration, opts("Go to declaration"))
-      keymap.set("n", "gd", "<cmd>Telescope lsp_definitions<CR>", opts("Show definitions"))
-      keymap.set("n", "gi", "<cmd>Telescope lsp_implementations<CR>", opts("Show implementations"))
-      keymap.set("n", "gt", "<cmd>Telescope lsp_type_definitions<CR>", opts("Show type definitions"))
-
-      keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts("Show code actions"))
-      keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts("Smart rename"))
-      keymap.set("n", "<F2>", vim.lsp.buf.rename, opts("Smart rename"))
-
-      keymap.set("n", "<leader>bd", "<cmd>Telescope diagnostics bufnr=0<CR>", opts("Show buffer diagnostics"))
-      keymap.set("n", "<leader>ld", vim.diagnostic.open_float, opts("Show line diagnostics"))
-
-      keymap.set("n", "[d", vim.diagnostic.goto_prev, opts("Prev diagnostic"))
-      keymap.set("n", "]d", vim.diagnostic.goto_next, opts("Next diagnostic"))
-
-      keymap.set("n", "K", vim.lsp.buf.hover, opts("Show documentation"))
-      keymap.set("n", "<leader>lr", "<cmd>LspRestart<CR>", opts("Restart LSP"))
+    local keymap = vim.keymap
+    local function opts(desc, buf)
+      return { buffer = buf, desc = desc, noremap = true }
     end
 
+    keymap.set("n", "<leader>ld", vim.diagnostic.open_float, opts("Show line diagnostics"))
+    keymap.set("n", "[d", vim.diagnostic.goto_prev, opts("Prev diagnostic"))
+    keymap.set("n", "]d", vim.diagnostic.goto_next, opts("Next diagnostic"))
+
+    vim.api.nvim_create_autocmd("LspAttach", {
+      group = vim.api.nvim_create_augroup("UserLspConfig", {}),
+      callback = function(ev)
+        local buf = ev.buf
+        -- Enable completion triggered by <c-x><c-o>
+        vim.bo[buf].omnifunc = "v:lua.vim.lsp.omnifunc"
+
+        keymap.set("n", "gr", "<cmd>Telescope lsp_references<CR>", opts("Show references", buf))
+        keymap.set("n", "gD", vim.lsp.buf.declaration, opts("Go to declaration", buf))
+        keymap.set("n", "gd", "<cmd>Telescope lsp_definitions<CR>", opts("Show definitions", buf))
+        keymap.set("n", "gi", "<cmd>Telescope lsp_implementations<CR>", opts("Show implementations", buf))
+        keymap.set("n", "gt", "<cmd>Telescope lsp_type_definitions<CR>", opts("Show type definitions", buf))
+
+        keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts("Show code actions", buf))
+        keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts("Smart rename", buf))
+        keymap.set("n", "<F2>", vim.lsp.buf.rename, opts("Smart rename", buf))
+
+        keymap.set("n", "<leader>bd", "<cmd>Telescope diagnostics bufnr=0<CR>", opts("Show buffer diagnostics", buf))
+
+        keymap.set("n", "K", vim.lsp.buf.hover, opts("Show documentation", buf))
+        keymap.set("n", "<leader>lr", "<cmd>LspRestart<CR>", opts("Restart LSP", buf))
+      end,
+    })
+
     -- used to enable autocompletion (assign to every lsp server config)
+    local cmp_nvim_lsp = require("cmp_nvim_lsp")
     local capabilities = cmp_nvim_lsp.default_capabilities()
 
     local signs = { Error = "󰅙 ", Warn = "󰀨 ", Hint = "󰓏 ", Info = "󰠠 " }
@@ -49,31 +55,25 @@ return {
 
     lspconfig.html.setup({
       capabilities = capabilities,
-      on_attach = on_attach,
     })
 
     lspconfig.tsserver.setup({
-      on_attach = on_attach,
       capabilities = capabilities,
     })
 
     lspconfig.astro.setup({
-      on_attach = on_attach,
       capabilities = capabilities,
     })
 
     lspconfig.cssls.setup({
       capabilities = capabilities,
-      on_attach = on_attach,
     })
 
     lspconfig.tailwindcss.setup({
       capabilities = capabilities,
-      on_attach = on_attach,
     })
 
     lspconfig.omnisharp.setup({
-      on_attach = on_attach,
       capabilities = capabilities,
       cmd = { "OmniSharp.exe", "--languageserver", "--hostPID", tostring(pid) },
       enable_import_completion = true,
@@ -84,7 +84,6 @@ return {
     })
 
     lspconfig.lua_ls.setup({
-      on_attach = on_attach,
       capabilities = capabilities,
       settings = {
         Lua = {
