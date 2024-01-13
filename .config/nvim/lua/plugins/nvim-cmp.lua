@@ -3,7 +3,6 @@ return {
   event = { "InsertEnter" },
   dependencies = {
     "L3MON4D3/LuaSnip", -- snippet engine
-    "onsails/lspkind.nvim", -- vs-code like pictograms
     "rafamadriz/friendly-snippets", -- useful snippets
 
     "saadparwaiz1/cmp_luasnip",
@@ -14,7 +13,6 @@ return {
   config = function()
     local cmp = require("cmp")
     local luasnip = require("luasnip")
-    local lspkind = require("lspkind")
 
     -- loads vscode style snippets from installed plugins (e.g. friendly-snippets)
     require("luasnip.loaders.from_vscode").lazy_load()
