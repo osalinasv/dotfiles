@@ -20,8 +20,7 @@ return {
       end,
     })
 
-    vim.keymap.set("n", "<leader>li", function()
-      lint.try_lint()
-    end, { desc = "Lint file" })
+    local keymap = require("utils.keymap")
+    keymap.map("n", "<leader>li", lint.try_lint, "Lint file")
   end,
 }

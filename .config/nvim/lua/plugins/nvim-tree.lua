@@ -7,16 +7,12 @@ return {
   },
   config = function()
     local api = require("nvim-tree.api")
+    local keymap = require("utils.keymap")
 
-    local function on_attach(bufnr)
-      local function opts(desc)
-        return { desc = desc, buffer = bufnr, noremap = true }
-      end
-
-      api.config.mappings.default_on_attach(bufnr)
-      vim.keymap.set("n", "<C-t>", "", opts(""))
-      vim.keymap.set("n", "<C-e>", api.tree.toggle, opts("Toggle explorer"))
-      vim.keymap.set("n", "<leader>ee", api.tree.toggle, opts("Toggle explorer"))
+    local function on_attach(buf)
+      api.config.mappings.default_on_attach(buf)
+      keymap.map("n", "<C-e>", api.tree.toggle, "Toggle explorer", { buffer = buf })
+      keymap.map("n", "<leader>ee", api.tree.toggle, "Toggle explorer", { buffer = buf })
     end
 
     require("nvim-tree").setup({
@@ -45,13 +41,8 @@ return {
       },
     })
 
-    local keymap = vim.keymap
-    local function opts(desc)
-      return { desc = desc, noremap = true }
-    end
-
-    keymap.set("n", "<C-e>", api.tree.toggle, opts("Toggle explorer"))
-    keymap.set("n", "<leader>ee", api.tree.toggle, opts("Toggle explorer"))
-    keymap.set("n", "<leader>er", api.tree.reload, opts("Refresh explorer"))
+    keymap.map("n", "<C-e>", api.tree.toggle, "Toggle explorer")
+    keymap.map("n", "<leader>ee", api.tree.toggle, "Toggle explorer")
+    keymap.map("n", "<leader>er", api.tree.reload, "Refresh explorer")
   end,
 }

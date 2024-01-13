@@ -10,14 +10,10 @@ return {
     local pid = vim.fn.getpid()
     local lspconfig = require("lspconfig")
 
-    local keymap = vim.keymap
-    local function opts(desc, buf)
-      return { buffer = buf, desc = desc, noremap = true }
-    end
-
-    keymap.set("n", "<leader>ld", vim.diagnostic.open_float, opts("Show line diagnostics"))
-    keymap.set("n", "[d", vim.diagnostic.goto_prev, opts("Prev diagnostic"))
-    keymap.set("n", "]d", vim.diagnostic.goto_next, opts("Next diagnostic"))
+    local keymap = require("utils.keymap")
+    keymap.map("n", "<leader>ld", vim.diagnostic.open_float, "Show line diagnostics")
+    keymap.map("n", "[d", vim.diagnostic.goto_prev, "Prev diagnostic")
+    keymap.map("n", "]d", vim.diagnostic.goto_next, "Next diagnostic")
 
     vim.api.nvim_create_autocmd("LspAttach", {
       group = vim.api.nvim_create_augroup("UserLspConfig", {}),
@@ -26,20 +22,26 @@ return {
         -- Enable completion triggered by <c-x><c-o>
         vim.bo[buf].omnifunc = "v:lua.vim.lsp.omnifunc"
 
-        keymap.set("n", "gr", "<cmd>Telescope lsp_references<CR>", opts("Show references", buf))
-        keymap.set("n", "gD", vim.lsp.buf.declaration, opts("Go to declaration", buf))
-        keymap.set("n", "gd", "<cmd>Telescope lsp_definitions<CR>", opts("Show definitions", buf))
-        keymap.set("n", "gi", "<cmd>Telescope lsp_implementations<CR>", opts("Show implementations", buf))
-        keymap.set("n", "gt", "<cmd>Telescope lsp_type_definitions<CR>", opts("Show type definitions", buf))
+        keymap.map("n", "gr", "<cmd>Telescope lsp_references<CR>", "Show references", { buffer = buf })
+        keymap.map("n", "gD", vim.lsp.buf.declaration, "Go to declaration", { buffer = buf })
+        keymap.map("n", "gd", "<cmd>Telescope lsp_definitions<CR>", "Show definitions", { buffer = buf })
+        keymap.map("n", "gi", "<cmd>Telescope lsp_implementations<CR>", "Show implementations", { buffer = buf })
+        keymap.map("n", "gt", "<cmd>Telescope lsp_type_definitions<CR>", "Show type definitions", { buffer = buf })
 
-        keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts("Show code actions", buf))
-        keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts("Smart rename", buf))
-        keymap.set("n", "<F2>", vim.lsp.buf.rename, opts("Smart rename", buf))
+        keymap.map("n", "<leader>ca", vim.lsp.buf.code_action, "Show code actions", { buffer = buf })
+        keymap.map("n", "<leader>rn", vim.lsp.buf.rename, "Smart rename", { buffer = buf })
+        keymap.map("n", "<F2>", vim.lsp.buf.rename, "Smart rename", { buffer = buf })
 
-        keymap.set("n", "<leader>bd", "<cmd>Telescope diagnostics bufnr=0<CR>", opts("Show buffer diagnostics", buf))
+        keymap.map(
+          "n",
+          "<leader>bd",
+          "<cmd>Telescope diagnostics bufnr=0<CR>",
+          "Show buffer diagnostics",
+          { buffer = buf }
+        )
 
-        keymap.set("n", "K", vim.lsp.buf.hover, opts("Show documentation", buf))
-        keymap.set("n", "<leader>lr", "<cmd>LspRestart<CR>", opts("Restart LSP", buf))
+        keymap.map("n", "K", vim.lsp.buf.hover, "Show documentation", { buffer = buf })
+        keymap.map("n", "<leader>lr", "<cmd>LspRestart<CR>", "Restart LSP", { buffer = buf })
       end,
     })
 

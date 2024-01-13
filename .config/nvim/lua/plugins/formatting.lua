@@ -25,12 +25,13 @@ return {
       },
     })
 
-    vim.keymap.set({ "n", "v" }, "<leader>fm", function()
+    local keymap = require("utils.keymap")
+    keymap.map({ "n", "v" }, "<leader>fm", function()
       conform.format({
         lsp_fallback = true,
         async = false,
         timeout_ms = 3000,
       })
-    end, { desc = "Format file or range", noremap = true })
+    end, "Format file or range")
   end,
 }

@@ -8,10 +8,12 @@ return {
   },
   config = function()
     require("nvim-treesitter.configs").setup({
+      auto_install = false,
       sync_install = false,
       indent = { enable = true },
       autotag = { enable = true },
       highlight = { enable = true },
+      incremental_selection = { enable = false },
       ensure_installed = {
         "astro",
         "c_sharp",
@@ -31,15 +33,6 @@ return {
         "vim",
         "xml",
         "yaml",
-      },
-      incremental_selection = {
-        enable = true,
-        keymaps = {
-          init_selection = "<C-space>",
-          node_incremental = "<C-space>",
-          scope_incremental = false,
-          node_decremental = "<bs>",
-        },
       },
     })
 

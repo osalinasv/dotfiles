@@ -12,12 +12,8 @@ return {
       graph_style = "unicode",
     })
 
-    local keymap = vim.keymap
-    local function opts(desc)
-      return { desc = desc, noremap = true }
-    end
-
-    keymap.set("n", "<C-g>", "<cmd>Neogit<CR>", opts("Open Neogit"))
-    keymap.set("n", "<leader>gg", "<cmd>Neogit<CR>", opts("Open Neogit"))
+    local keymap = require("utils.keymap")
+    keymap.map("n", "<C-g>", "<cmd>Neogit<CR>", "Open Neogit")
+    keymap.map("n", "<leader>gg", "<cmd>Neogit<CR>", "Open Neogit")
   end,
 }

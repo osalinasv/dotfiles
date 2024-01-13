@@ -3,16 +3,11 @@ return {
   event = "VeryLazy",
   config = function()
     require("gitsigns").setup({
-      on_attach = function(bufnr)
+      on_attach = function(buf)
         local gs = package.loaded.gitsigns
+        local keymap = require("utils.keymap")
 
-        local function map(mode, l, r, opts)
-          opts = opts or {}
-          opts.buffer = bufnr
-          vim.keymap.set(mode, l, r, opts)
-        end
-
-        map("n", "]c", function()
+        keymap.map("n", "]c", function()
           if vim.wo.diff then
             return "]c"
           end
@@ -20,9 +15,9 @@ return {
             gs.next_hunk()
           end)
           return "<Ignore>"
-        end, { expr = true, desc = "Next git hunk" })
+        end, "Next git hunk", { expr = true, buffer = buf })
 
-        map("n", "[c", function()
+        keymap.map("n", "[c", function()
           if vim.wo.diff then
             return "[c"
           end
@@ -30,17 +25,15 @@ return {
             gs.prev_hunk()
           end)
           return "<Ignore>"
-        end, { expr = true, desc = "Prev git hunk" })
+        end, "Prev git hunk", { expr = true, buffer = buf })
 
-        map("n", "<leader>hs", gs.stage_hunk, { desc = "Stage git hunk" })
-        map("n", "<leader>hr", gs.reset_hunk, { desc = "Reset git hunk" })
-        map("n", "<leader>hu", gs.undo_stage_hunk, { desc = "Unstage git hunk" })
-        map("n", "<leader>hp", gs.preview_hunk, { desc = "Preview git hunk" })
-
-        map("n", "<leader>hS", gs.stage_buffer, { desc = "Git stage buffer" })
-        map("n", "<leader>hR", gs.reset_buffer, { desc = "Git reset buffer" })
-
-        map("n", "<leader>hd", gs.diffthis, { desc = "Split view git diff" })
+        keymap.map("n", "<leader>hs", gs.stage_hunk, "Stage git hunk", { buffer = buf })
+        keymap.map("n", "<leader>hr", gs.reset_hunk, "Reset git hunk", { buffer = buf })
+        keymap.map("n", "<leader>hu", gs.undo_stage_hunk, "Unstage git hunk", { buffer = buf })
+        keymap.map("n", "<leader>hp", gs.preview_hunk, "Preview git hunk", { buffer = buf })
+        keymap.map("n", "<leader>hS", gs.stage_buffer, "Git stage buffer", { buffer = buf })
+        keymap.map("n", "<leader>hR", gs.reset_buffer, "Git reset buffer", { buffer = buf })
+        keymap.map("n", "<leader>hd", gs.diffthis, "Split view git diff", { buffer = buf })
       end,
     })
   end,
