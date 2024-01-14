@@ -1,12 +1,11 @@
 return {
   "akinsho/toggleterm.nvim",
   version = "*",
+  lazy = true,
   event = "VeryLazy",
-  config = function()
-    require("toggleterm").setup({
-      open_mapping = "<C-t>",
-      direction = "horizontal",
-      close_on_exit = true,
-    })
-  end,
+  opts = {
+    open_mapping = "<C-t>",
+    direction = "horizontal",
+    close_on_exit = true,
+  },
 }

@@ -43,6 +43,7 @@ opt.signcolumn = "yes"
 
 -- Editor
 opt.colorcolumn = "80"
+opt.scrolloff = 8
 opt.list = true
 opt.listchars:append({ lead = "·" })
 

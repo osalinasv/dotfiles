@@ -1,10 +1,10 @@
 return {
   "neovim/nvim-lspconfig",
+  lazy = true,
   event = { "BufReadPre", "BufNewFile" },
   dependencies = {
     "hrsh7th/cmp-nvim-lsp",
     "Hoffs/omnisharp-extended-lsp.nvim",
-    "antosha417/nvim-lsp-file-operations",
   },
   config = function()
     local pid = vim.fn.getpid()

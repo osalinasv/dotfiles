@@ -1,10 +1,10 @@
 return {
   "folke/which-key.nvim",
+  lazy = true,
   event = "VeryLazy",
-  config = function()
+  init = function()
     vim.o.timeout = true
     vim.o.timeoutlen = 300
-
-    require("which-key").setup()
   end,
+  config = true,
 }

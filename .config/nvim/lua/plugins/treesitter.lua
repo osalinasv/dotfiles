@@ -1,5 +1,6 @@
 return {
   "nvim-treesitter/nvim-treesitter",
+  lazy = true,
   event = { "BufReadPre", "BufNewFile" },
   build = ":TSUpdate",
   dependencies = {
@@ -16,8 +17,8 @@ return {
       incremental_selection = { enable = false },
       ensure_installed = {
         "astro",
-        "c_sharp",
         "c",
+        "c_sharp",
         "cpp",
         "css",
         "diff",
@@ -26,8 +27,8 @@ return {
         "javascript",
         "json",
         "lua",
-        "markdown_inline",
         "markdown",
+        "markdown_inline",
         "tsx",
         "typescript",
         "vim",
