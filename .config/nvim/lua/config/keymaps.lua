@@ -15,6 +15,7 @@ keymap.map("n", "<C-q>", "<cmd>bd<CR>", "Close buffer")
 keymap.map("n", "<C-n>", "<cmd>enew<CR>", "Open new buffer")
 keymap.map({ "n", "v" }, "<M-up>", "<cmd>m-2<CR>==", "Move line up")
 keymap.map({ "n", "v" }, "<M-down>", "<cmd>m+<CR>==", "Move line down")
+keymap.map("i", "<S-Tab>", "<C-d>", "De-tab")
 
 -- Split windows
 keymap.map("n", "<leader>sv", "<C-w>v", "Split vertically")
@@ -40,5 +41,5 @@ keymap.map("n", "]b", "<cmd>bn<CR>", "Next buffer")
 keymap.map("n", "[q", "<cmd>cp<CR>zz", "Prev in quickfix")
 keymap.map("n", "]q", "<cmd>cn<CR>zz", "Next in quickfix")
 
-keymap.map("n", "<C-down>", "<C-d>", "Move down 1/2 screen")
-keymap.map("n", "<C-up>", "<C-u>", "Move up 1/2 screen")
+keymap.map({ "n", "v" }, "<C-down>", "<C-d>", "Move down 1/2 screen")
+keymap.map({ "n", "v" }, "<C-up>", "<C-u>", "Move up 1/2 screen")

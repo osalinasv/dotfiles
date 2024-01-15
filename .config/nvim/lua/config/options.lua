@@ -1,5 +1,6 @@
 local opt = vim.opt
 vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 
 opt.title = true
 opt.ignorecase = true
@@ -30,8 +31,12 @@ opt.breakindent = true
 opt.wrap = false
 
 -- Search settings
+opt.hlsearch = true
 opt.ignorecase = true
 opt.smartcase = true
+opt.incsearch = true
+opt.completeopt = { "menuone", "noselect" }
+opt.updatetime = 100
 
 -- Cursor line
 opt.cursorline = true
@@ -43,7 +48,13 @@ opt.signcolumn = "yes"
 
 -- Editor
 opt.colorcolumn = "80"
+opt.conceallevel = 0
+opt.cmdheight = 1
 opt.scrolloff = 8
+opt.sidescrolloff = 8
+opt.showmode = false
+opt.showtabline = 0
+opt.undofile = true
 opt.list = true
 opt.listchars:append({ lead = "·" })
 
@@ -60,7 +71,7 @@ opt.shellxquote = ""
 opt.backspace = { "start", "eol", "indent" }
 
 -- Clipboard
-opt.clipboard:append("unnamedplus") -- use system clipboard as default register
+opt.clipboard = "unnamedplus"
 
 -- Search files
 opt.path:append({ "**" }) -- Finding files - Search down into subfolders
