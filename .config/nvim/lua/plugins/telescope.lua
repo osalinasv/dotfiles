@@ -24,8 +24,11 @@ return {
         file_ignore_patterns = { "node_modules" },
         mappings = {
           i = {
-            ["<C-h>"] = actions.which_key,
             ["<Esc>"] = actions.close,
+            ["<C-j>"] = actions.move_selection_next,
+            ["<C-k>"] = actions.move_selection_previous,
+            ["<C-h>"] = actions.preview_scrolling_up,
+            ["<C-l>"] = actions.preview_scrolling_down,
           },
         },
         layout_strategy = "horizontal",
