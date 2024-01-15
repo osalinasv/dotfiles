@@ -19,21 +19,22 @@ return {
 
     require("mason-lspconfig").setup({
       ensure_installed = {
-        "html",
-        "cssls",
-        "lua_ls",
-        "tsserver",
         "astro",
+        "biome",
+        "cssls",
+        "html",
+        "lua_ls",
         "omnisharp",
         "tailwindcss",
+        "tsserver",
       },
     })
 
     require("mason-tool-installer").setup({
       ensure_installed = {
+        "eslint_d",
         "prettier",
         "stylua",
-        "eslint_d",
       },
     })
   end,
