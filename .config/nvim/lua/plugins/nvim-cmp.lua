@@ -29,7 +29,7 @@ return {
         ["<C-up>"] = cmp.mapping.scroll_docs(-4),
         ["<C-down>"] = cmp.mapping.scroll_docs(4),
         ["<C-Space>"] = cmp.mapping.complete(),
-        ["<Esc>"] = cmp.mapping.abort(),
+        ["<C-q>"] = cmp.mapping.abort(),
         ["<Tab>"] = cmp.mapping.confirm({ select = true }),
       }),
       sources = cmp.config.sources({

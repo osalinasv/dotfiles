@@ -14,11 +14,11 @@ return {
       },
     })
 
-    local cmp_autopairs = require("nvim-autopairs.completion.cmp")
-    local cmp = require("cmp")
+    -- local cmp_autopairs = require("nvim-autopairs.completion.cmp")
+    -- local cmp = require("cmp")
 
     -- Maybe remove this if it keeps adding parens after JSX component
     -- https://github.com/LunarVim/LunarVim/pull/2083/files
-    cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
+    -- cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
   end,
 }
