@@ -59,9 +59,9 @@ return {
       capabilities = capabilities,
     })
 
-    lspconfig.biome.setup({
-      capabilities = capabilities,
-    })
+    -- lspconfig.biome.setup({
+    --   capabilities = capabilities,
+    -- })
 
     lspconfig.tsserver.setup({
       capabilities = capabilities,

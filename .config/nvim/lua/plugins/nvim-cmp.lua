@@ -34,13 +34,12 @@ return {
         ["<C-q>"] = cmp.mapping.abort(),
         ["<Tab>"] = cmp.mapping.confirm({ select = true }),
       }),
-      sources = cmp.config.sources({
+      sources = {
         { name = "nvim_lsp" },
         { name = "luasnip" },
-      }, {
         { name = "buffer" },
         { name = "path" },
-      }),
+      },
     })
 
     -- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
@@ -55,11 +54,10 @@ return {
     -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
     cmp.setup.cmdline(":", {
       mapping = cmp.mapping.preset.cmdline(),
-      sources = cmp.config.sources({
+      sources = {
         { name = "cmdline" },
-      }, {
         { name = "path" },
-      }),
+      },
     })
   end,
 }
