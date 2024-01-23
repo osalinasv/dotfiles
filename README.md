@@ -8,7 +8,8 @@ Install-Module git-aliases -Scope CurrentUser -AllowClobber
 Install-Module DirColors -Scope CurrentUser
 
 # For NeoVIM
-choco install nvim fd fzf make mingw ripgrep omnisharp
+choco install nvim fd fzf sed make mingw ripgrep
+dotnet tool install --global csharp-ls
 ```
 
 # Symlink configs
