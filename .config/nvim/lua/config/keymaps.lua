@@ -35,7 +35,9 @@ local Util = require("lazyvim.util")
 
 -- ide-like
 keymap.map("n", "<C-a>", "gg<S-v>G", "Select all")
-keymap.map("n", "<C-q>", "<cmd>bd<CR>", "Close buffer")
+keymap.map("n", "<C-q>", function(n)
+  require("mini.bufremove").delete(n, false)
+end, "Close buffer")
 keymap.map("n", "<C-n>", "<cmd>enew<CR>", "Open new buffer")
 keymap.map("i", "<S-Tab>", "<C-d>", "De-tab")
 -- buffers
