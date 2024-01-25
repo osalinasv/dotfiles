@@ -62,8 +62,9 @@
     "copyFormatting": "none",
     "copyOnSelect": false,
     "defaultProfile": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
-    "initialCols": 136,
-    "initialRows": 56,
+    "disableAnimations": true,
+    "initialCols": 125,
+    "initialRows": 55,
     "newTabMenu": 
     [
         {
@@ -191,19 +192,19 @@
             "black": "#45475A",
             "blue": "#89B4FA",
             "brightBlack": "#585B70",
-            "brightBlue": "#89B4FA",
-            "brightCyan": "#94E2D5",
-            "brightGreen": "#A6E3A1",
-            "brightPurple": "#F5C2E7",
-            "brightRed": "#F38BA8",
-            "brightWhite": "#A6ADC8",
-            "brightYellow": "#F9E2AF",
+            "brightBlue": "#B4BEFE",
+            "brightCyan": "#B0EBE7",
+            "brightGreen": "#C3F0C0",
+            "brightPurple": "#D2C2FC",
+            "brightRed": "#EBA0AC",
+            "brightWhite": "#CDD6F4",
+            "brightYellow": "#FCEBCA",
             "cursorColor": "#F5E0DC",
             "cyan": "#94E2D5",
             "foreground": "#CDD6F4",
             "green": "#A6E3A1",
             "name": "Catppuccin Mocha",
-            "purple": "#F5C2E7",
+            "purple": "#CBA6F7",
             "red": "#F38BA8",
             "selectionBackground": "#585B70",
             "white": "#BAC2DE",
@@ -411,5 +412,6 @@
                 "useMica": false
             }
         }
-    ]
+    ],
+    "windowingBehavior": "useAnyExisting"
 }
