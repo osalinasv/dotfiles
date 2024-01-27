@@ -4,6 +4,10 @@ return {
     keys = function()
       return {}
     end,
+    opts = {
+      region_check_events = "CursorHold,InsertLeave",
+      delete_check_events = "TextChanged,InsertEnter",
+    },
   },
   {
     "hrsh7th/nvim-cmp",
@@ -67,11 +71,10 @@ return {
   },
   {
     "m4xshen/hardtime.nvim",
-    lazy = true,
-    event = "VeryLazy",
     dependencies = {
       "MunifTanjim/nui.nvim",
       "nvim-lua/plenary.nvim",
     },
+    config = true,
   },
 }
