@@ -18,6 +18,14 @@ return {
 
       -- Remove Util.lualine.root_dir()
       table.remove(opts.sections.lualine_c, 1)
+
+      -- Move location section to end
+      opts.sections.lualine_y = {
+        { "progress", padding = { left = 1, right = 1 } },
+      }
+      opts.sections.lualine_z = {
+        { "location", padding = { left = 0, right = 1 } },
+      }
     end,
   },
 }

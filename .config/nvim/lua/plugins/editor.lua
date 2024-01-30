@@ -73,7 +73,6 @@ return {
     },
     keys = {
       { "<C-g>", "<cmd>Neogit<CR>", desc = "Open Neogit" },
-      { "<leader>gg", "<cmd>Neogit<CR>", desc = "Open Neogit" },
     },
     opts = {
       kind = "auto",

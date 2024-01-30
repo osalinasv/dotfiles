@@ -42,7 +42,7 @@
           "foreground": "p:mauve",
           "template": "{{ .Path }} ",
           "properties": {
-            "style": "full"
+            "style": "agnoster"
           }
         },
         {
