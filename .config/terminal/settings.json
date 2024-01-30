@@ -79,7 +79,11 @@
             "font": 
             {
                 "face": "JetBrainsMono Nerd Font",
-                "size": 11.0
+                "size": 11.0,
+                "features": {
+                    "calt": 0,
+                    "liga": 0
+                }
             }
         },
         "list": 
