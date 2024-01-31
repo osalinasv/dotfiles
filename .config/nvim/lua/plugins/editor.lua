@@ -30,6 +30,15 @@ return {
     end,
   },
   {
+    "folke/flash.nvim",
+    opts = {
+      label = {
+        after = false,
+        before = true,
+      },
+    },
+  },
+  {
     "nvim-neo-tree/neo-tree.nvim",
     keys = function()
       return {
