@@ -53,6 +53,8 @@ keymap.nnoremap("N", "Nzz")
 keymap.nnoremap("n", "nzz")
 keymap.nnoremap("G", "Gzz")
 keymap.nnoremap("gg", "ggzz")
+keymap.inoremap("<C-h>", "<Left>")
+keymap.inoremap("<C-l>", "<Right>")
 -- buffers
 keymap.nnoremap("<S-Tab>", "<cmd>bprevious<cr>", { desc = "Prev buffer" })
 keymap.nnoremap("<Tab>", "<cmd>bnext<cr>", { desc = "Next buffer" })

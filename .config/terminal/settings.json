@@ -14,6 +14,10 @@
             "command": "paste"
         },
         {
+            "command": "find",
+            "keys": "ctrl+shift+f"
+        },
+        {
             "command": 
             {
                 "action": "splitPane",
@@ -21,10 +25,6 @@
                 "splitMode": "duplicate"
             },
             "keys": "alt+shift+d"
-        },
-        {
-            "command": "find",
-            "keys": "ctrl+shift+f"
         },
         {
             "command": "unbound",
@@ -79,11 +79,12 @@
             "font": 
             {
                 "face": "JetBrainsMono Nerd Font",
-                "size": 11.0,
-                "features": {
+                "features": 
+                {
                     "calt": 0,
                     "liga": 0
-                }
+                },
+                "size": 11.0
             }
         },
         "list": 
@@ -95,12 +96,6 @@
                 "source": "Windows.Terminal.PowershellCore"
             },
             {
-                "commandline": "%SystemRoot%\\System32\\cmd.exe",
-                "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
-                "name": "Command Prompt"
-            },
-            {
-                "colorScheme": "Catppuccin Mocha",
                 "commandline": "\"C:\\Program Files\\PowerShell\\7\\pwsh.exe\"",
                 "elevate": true,
                 "guid": "{2b91b24d-e45e-44b0-94d7-defdb5bfeaf4}",
@@ -112,6 +107,17 @@
                 "commandline": "csharprepl",
                 "guid": "{b2b9c791-3ddc-4b52-bf7c-9c80fffa0028}",
                 "name": "C# REPL"
+            },
+            {
+                "guid": "{58ad8b0c-3ef8-5f4d-bc6f-13e4c00f2530}",
+                "hidden": false,
+                "name": "Debian",
+                "source": "Windows.Terminal.Wsl"
+            },
+            {
+                "commandline": "%SystemRoot%\\System32\\cmd.exe",
+                "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
+                "name": "Command Prompt"
             },
             {
                 "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
