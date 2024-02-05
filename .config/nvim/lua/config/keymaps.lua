@@ -60,6 +60,6 @@ keymap.nnoremap("<S-Tab>", "<cmd>bprevious<cr>", { desc = "Prev buffer" })
 keymap.nnoremap("<Tab>", "<cmd>bnext<cr>", { desc = "Next buffer" })
 -- terminal
 keymap.nnoremap("<C-t>", function()
-  Util.terminal(nil, { cwd = Util.root() })
+  Util.terminal(nil, { cwd = Util.root(), border = "rounded" })
 end, { desc = "Terminal (root dir)" })
 keymap.tnoremap("<C-t>", "<cmd>close<cr>", { desc = "Hide Terminal" })
