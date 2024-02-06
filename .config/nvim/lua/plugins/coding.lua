@@ -25,6 +25,7 @@ return {
         ["<C-h>"] = cmp.mapping.scroll_docs(-4),
         ["<C-l>"] = cmp.mapping.scroll_docs(4),
         ["<C-q>"] = cmp.mapping.abort(),
+        ["<CR>"] = cmp.mapping.confirm({ select = true }),
         ["<Tab>"] = cmp.mapping.confirm({ select = true }),
         ["<S-Tab>"] = cmp.mapping.confirm({
           behavior = cmp.ConfirmBehavior.Replace,

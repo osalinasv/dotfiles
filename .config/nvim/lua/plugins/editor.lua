@@ -55,6 +55,7 @@ return {
     end,
     opts = {
       window = {
+        position = "right",
         width = 35,
         mappings = {
           ["<Tab>"] = "toggle_node",
