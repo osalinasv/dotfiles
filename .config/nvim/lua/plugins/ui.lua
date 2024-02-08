@@ -28,20 +28,4 @@ return {
       }
     end,
   },
-  -- {
-  --   "echasnovski/mini.indentscope",
-  --   optional = true,
-  --   enabled = false,
-  --   opts = {
-  --     draw = {
-  --       animation = require("mini.indentscope").gen_animation.none(),
-  --     },
-  --     mappings = {
-  --       object_scope = "",
-  --       object_scope_with_border = "",
-  --       goto_top = "",
-  --       goto_bottom = "",
-  --     },
-  --   },
-  -- },
 }

@@ -22,8 +22,19 @@ require("lazy").setup({
     lazy = false,
     version = false,
   },
-  install = { colorscheme = { "catppuccin" } },
-  checker = { enabled = true },
+  install = {
+    colorscheme = { "catppuccin" },
+  },
+  ui = {
+    border = "rounded",
+    size = {
+      width = 0.8,
+      height = 0.8,
+    },
+  },
+  checker = {
+    enabled = true,
+  },
   change_detection = {
     notify = false,
   },

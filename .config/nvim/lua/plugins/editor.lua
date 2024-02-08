@@ -8,6 +8,7 @@ return {
         mappings = {
           i = {
             ["<Esc>"] = actions.close,
+            ["<C-q>"] = actions.close,
             ["<C-j>"] = actions.move_selection_next,
             ["<C-k>"] = actions.move_selection_previous,
             ["<C-h>"] = actions.preview_scrolling_up,
@@ -17,13 +18,14 @@ return {
         layout_strategy = "horizontal",
         layout_config = {
           horizontal = {
+            height = 0.8,
             width = function(_, cols, _)
-              return math.min(160, math.floor(cols * 0.9))
+              return math.min(160, math.floor(cols * 0.8))
             end,
             preview_width = function(_, cols, _)
-              return math.min(80, math.floor(cols * 0.6))
+              return math.min(75, math.floor(cols * 0.6))
             end,
-            preview_cutoff = 80,
+            preview_cutoff = 75,
           },
         },
       })
