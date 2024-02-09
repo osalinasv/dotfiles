@@ -39,7 +39,7 @@
         {
           "type": "path",
           "style": "plain",
-          "foreground": "p:mauve",
+          "foreground": "magenta",
           "template": "{{ .Path }} ",
           "properties": {
             "style": "agnoster"
@@ -48,14 +48,14 @@
         {
           "type": "git",
           "style": "plain",
-          "foreground": "p:sapphire",
+          "foreground": "cyan",
           "foreground_templates": [
-            "{{ if or (.Working.Changed) (.Staging.Changed) }}p:red{{ end }}",
-            "{{ if and (gt .Ahead 0) (gt .Behind 0)}}foreground{{ end }}",
-            "{{ if gt .Ahead 0 }}p:green{{ end }}",
-            "{{ if gt .Behind 0 }}p:yellow{{ end }}"
+            "{{ if or (.Working.Changed) (.Staging.Changed) }}red{{ end }}",
+            "{{ if and (gt .Ahead 0) (gt .Behind 0)}}cyan{{ end }}",
+            "{{ if gt .Ahead 0 }}green{{ end }}",
+            "{{ if gt .Behind 0 }}yellow{{ end }}"
           ],
-          "template": "<white>on</> {{ .HEAD }}{{ if .Staging.Changed}}<p:green> {{ .Staging.String }}</>{{ end }}{{ if .Working.Changed}}<p:yellow> {{ .Working.String }}</>{{ end }} ",
+          "template": "<white>on</> {{ .HEAD }}{{ if .Staging.Changed}}<green> {{ .Staging.String }}</>{{ end }}{{ if .Working.Changed}}<yellow> {{ .Working.String }}</>{{ end }} ",
           "properties": {
             "fetch_status": true,
             "branch_icon": ""
@@ -64,7 +64,7 @@
         {
           "type": "text",
           "style": "plain",
-          "foreground": "p:surface2",
+          "foreground": "darkGray",
           "template": "$ "
         }
       ]
