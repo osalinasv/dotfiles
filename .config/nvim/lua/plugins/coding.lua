@@ -48,12 +48,28 @@ return {
     },
   },
   {
-    "m4xshen/hardtime.nvim",
-    enabled = false,
-    dependencies = {
-      "MunifTanjim/nui.nvim",
-      "nvim-lua/plenary.nvim",
+    "brenton-leighton/multiple-cursors.nvim",
+    version = "*",
+    opts = {},
+    keys = {
+      {
+        "<C-A-j>",
+        "<Cmd>MultipleCursorsAddDown<CR>",
+        mode = { "n", "i" },
+        desc = "Add cursor below",
+      },
+      {
+        "<C-A-k>",
+        "<Cmd>MultipleCursorsAddUp<CR>",
+        mode = { "n", "i" },
+        desc = "Add cursor above",
+      },
+      {
+        "<Leader>cs",
+        "<Cmd>MultipleCursorsAddBySearch<CR>",
+        mode = { "n", "x" },
+        desc = "Add cursors to current word",
+      },
     },
-    config = true,
   },
 }

@@ -28,6 +28,8 @@ vim.keymap.del("n", "<leader><tab>[")
 -- lazygit
 vim.keymap.del("n", "<leader>gg")
 vim.keymap.del("n", "<leader>gG")
+-- windows
+vim.keymap.del("n", "<leader>wd")
 
 -- CUSTOM MAPS
 local keymap = require("utils.keymap")
@@ -63,3 +65,5 @@ keymap.nnoremap("<C-t>", function()
   Util.terminal(nil, { cwd = Util.root(), border = "rounded" })
 end, { desc = "Terminal (root dir)" })
 keymap.tnoremap("<C-t>", "<cmd>close<cr>", { desc = "Hide Terminal" })
+-- windows
+keymap.nnoremap("<leader>wq", "<C-W>c", { desc = "Close window" })
