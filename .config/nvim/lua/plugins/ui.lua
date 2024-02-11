@@ -2,30 +2,22 @@ return {
   {
     "nvim-lualine/lualine.nvim",
     opts = function(_, opts)
-      opts.options = vim.tbl_deep_extend("force", opts.options, {
-        section_separators = "",
-        component_separators = "",
-      })
+      opts.options.section_separators = ""
+      opts.options.component_separators = ""
 
-      opts.sections.lualine_a = {
-        {
-          "mode",
-          fmt = function(str)
-            return str:sub(1, 1)
-          end,
-        },
-      }
+      -- Remove mode section
+      opts.sections.lualine_a = {}
 
-      -- Remove Util.lualine.root_dir()
+      -- Remove root_dir from lazyvim
       table.remove(opts.sections.lualine_c, 1)
 
-      -- Move location section to end
       opts.sections.lualine_y = {
-        { "progress", padding = { left = 1, right = 1 } },
-      }
-      opts.sections.lualine_z = {
+        { "progress", padding = { left = 1, right = 0 } },
         { "location", padding = { left = 0, right = 1 } },
       }
+
+      -- Remove time section
+      opts.sections.lualine_z = {}
     end,
   },
 }

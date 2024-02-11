@@ -11,7 +11,6 @@ return {
   },
   {
     "folke/tokyonight.nvim",
-    name = "tokyonight",
     enabled = false,
     lazy = false,
     priority = 1000,
