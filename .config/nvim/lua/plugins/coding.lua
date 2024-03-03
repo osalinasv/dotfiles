@@ -65,8 +65,14 @@ return {
         desc = "Add cursor above",
       },
       {
+        "<C-A-n>",
+        "<Cmd>MultipleCursorsAddJumpNextMatch<CR>",
+        mode = { "n", "i" },
+        desc = "Add cursor next match",
+      },
+      {
         "<Leader>cs",
-        "<Cmd>MultipleCursorsAddBySearch<CR>",
+        "<Cmd>MultipleCursorsAddMatches<CR>",
         mode = { "n", "x" },
         desc = "Add cursors to current word",
       },

@@ -26,8 +26,6 @@ return {
         cssls = {},
         html = {},
         tailwindcss = {},
-        -- tsserver = {},
-        -- omnisharp = {},
       },
     },
   },

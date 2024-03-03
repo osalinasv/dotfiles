@@ -11,6 +11,7 @@ return {
         "css",
         "diff",
         "gitcommit",
+        "go",
         "html",
         "html",
         "javascript",
