@@ -25,9 +25,6 @@ vim.keymap.del("n", "<leader><tab><tab>")
 vim.keymap.del("n", "<leader><tab>]")
 vim.keymap.del("n", "<leader><tab>d")
 vim.keymap.del("n", "<leader><tab>[")
--- lazygit
-vim.keymap.del("n", "<leader>gg")
-vim.keymap.del("n", "<leader>gG")
 -- windows
 vim.keymap.del("n", "<leader>wd")
 
