@@ -33,6 +33,7 @@ opt.colorcolumn = "80"
 opt.scrolloff = 8
 opt.sidescrolloff = 8
 opt.signcolumn = "yes"
+opt.listchars:append({ lead = "·" })
 -- mouse support
 opt.mouse = "a"
 -- shell

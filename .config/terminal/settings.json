@@ -4,29 +4,6 @@
     "actions": 
     [
         {
-            "command": 
-            {
-                "action": "copy",
-                "singleLine": false
-            }
-        },
-        {
-            "command": "paste"
-        },
-        {
-            "command": "find",
-            "keys": "ctrl+shift+f"
-        },
-        {
-            "command": 
-            {
-                "action": "splitPane",
-                "split": "auto",
-                "splitMode": "duplicate"
-            },
-            "keys": "alt+shift+d"
-        },
-        {
             "command": "unbound",
             "keys": "ctrl+c"
         },
@@ -57,6 +34,33 @@
         {
             "command": "unbound",
             "keys": "ctrl+numpad_plus"
+        },
+        {
+            "command": "unbound",
+            "keys": "ctrl+shift+d"
+        },
+        {
+            "command": 
+            {
+                "action": "copy",
+                "singleLine": false
+            }
+        },
+        {
+            "command": "paste"
+        },
+        {
+            "command": 
+            {
+                "action": "splitPane",
+                "split": "auto",
+                "splitMode": "duplicate"
+            },
+            "keys": "alt+shift+d"
+        },
+        {
+            "command": "find",
+            "keys": "ctrl+shift+f"
         }
     ],
     "copyFormatting": "none",
@@ -123,6 +127,12 @@
                 "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
                 "hidden": false,
                 "name": "Windows PowerShell"
+            },
+            {
+                "guid": "{f10f72ba-46a8-5e87-9ce6-c9c08e00faca}",
+                "hidden": true,
+                "name": "Developer Command Prompt for VS 2017",
+                "source": "Windows.Terminal.VisualStudio"
             }
         ]
     },
@@ -389,6 +399,7 @@
             "tab": 
             {
                 "background": "#24273AFF",
+                "iconStyle": "default",
                 "showCloseButton": "always",
                 "unfocusedBackground": null
             },
@@ -400,6 +411,9 @@
             "window": 
             {
                 "applicationTheme": "dark",
+                "experimental.rainbowFrame": false,
+                "frame": null,
+                "unfocusedFrame": null,
                 "useMica": false
             }
         },
@@ -408,6 +422,7 @@
             "tab": 
             {
                 "background": "#1E1E2EFF",
+                "iconStyle": "default",
                 "showCloseButton": "always",
                 "unfocusedBackground": null
             },
@@ -419,6 +434,9 @@
             "window": 
             {
                 "applicationTheme": "dark",
+                "experimental.rainbowFrame": false,
+                "frame": null,
+                "unfocusedFrame": null,
                 "useMica": false
             }
         }

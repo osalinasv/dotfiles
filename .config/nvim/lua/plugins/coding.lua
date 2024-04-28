@@ -57,15 +57,6 @@ return {
     end,
   },
   {
-    "echasnovski/mini.comment",
-    opts = {
-      mappings = {
-        comment_line = "gl",
-        comment_visual = "gl",
-      },
-    },
-  },
-  {
     "brenton-leighton/multiple-cursors.nvim",
     version = "*",
     opts = {},
@@ -73,19 +64,19 @@ return {
       {
         "<C-A-j>",
         "<Cmd>MultipleCursorsAddDown<CR>",
-        mode = { "n", "i" },
+        mode = { "n", "x" },
         desc = "Add cursor below",
       },
       {
         "<C-A-k>",
         "<Cmd>MultipleCursorsAddUp<CR>",
-        mode = { "n", "i" },
+        mode = { "n", "x" },
         desc = "Add cursor above",
       },
       {
-        "<C-A-n>",
+        "<C-A-d>",
         "<Cmd>MultipleCursorsAddJumpNextMatch<CR>",
-        mode = { "n", "i" },
+        mode = { "n", "x" },
         desc = "Add cursor next match",
       },
       {
