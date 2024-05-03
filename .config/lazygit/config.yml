@@ -11,4 +11,4 @@ gui:
     selectedLineBgColor:
       - "#313244"
 os:
-  editPreset: "nvim"
+  editPreset: "nvim-remote"
