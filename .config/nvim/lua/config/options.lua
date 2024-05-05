@@ -28,6 +28,7 @@ opt.breakindent = true
 opt.smartindent = true
 -- editor
 opt.wrap = false
+opt.conceallevel = 0
 opt.cursorline = true
 opt.colorcolumn = "80"
 opt.scrolloff = 8
