@@ -5,10 +5,5 @@ gui:
   showRandomTip: false
   showCommandLog: false
   showPanelJumps: false
-  theme:
-    inactiveBorderColor:
-      - blue
-    selectedLineBgColor:
-      - "#313244"
 os:
   editPreset: "nvim-remote"
