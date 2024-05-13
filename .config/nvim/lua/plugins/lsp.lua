@@ -23,6 +23,7 @@ return {
       ---@type lspconfig.options
       servers = {
         astro = {},
+        biome = {},
         cssls = {},
         html = {},
         tailwindcss = {},
