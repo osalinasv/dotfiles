@@ -81,6 +81,7 @@ return {
   },
   {
     "NeogitOrg/neogit",
+    enabled = false,
     lazy = true,
     dependencies = {
       "nvim-lua/plenary.nvim",
