@@ -79,21 +79,4 @@ return {
       },
     },
   },
-  {
-    "NeogitOrg/neogit",
-    enabled = false,
-    lazy = true,
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "sindrets/diffview.nvim",
-      "nvim-telescope/telescope.nvim",
-    },
-    keys = {
-      { "<C-g>", "<cmd>Neogit<CR>", desc = "Open Neogit" },
-    },
-    opts = {
-      kind = "auto",
-      graph_style = "unicode",
-    },
-  },
 }

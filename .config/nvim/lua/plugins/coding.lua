@@ -1,21 +1,8 @@
 return {
   {
-    "L3MON4D3/LuaSnip",
-    keys = function()
-      return {}
-    end,
-    opts = {
-      region_check_events = "CursorHold,InsertLeave",
-      delete_check_events = "TextChanged,InsertEnter",
-    },
-  },
-  {
     "hrsh7th/nvim-cmp",
     ---@param opts cmp.ConfigSchema
     opts = function(_, opts)
-      local cmp = require("cmp")
-      local luasnip = require("luasnip")
-
       local has_words_before = function()
         unpack = unpack or table.unpack
         local line, col = unpack(vim.api.nvim_win_get_cursor(0))
@@ -26,6 +13,8 @@ return {
               :match("%s")
             == nil
       end
+
+      local cmp = require("cmp")
 
       opts.mapping = {
         ["<C-j>"] = cmp.mapping.select_next_item({
@@ -41,8 +30,10 @@ return {
         ["<Tab>"] = cmp.mapping(function(fallback)
           if cmp.visible() then
             cmp.confirm({ select = true })
-          elseif luasnip.expand_or_locally_jumpable() then
-            luasnip.expand_or_jump()
+          elseif vim.snippet.active({ direction = 1 }) then
+            vim.schedule(function()
+              vim.snippet.jump(1)
+            end)
           elseif has_words_before() then
             cmp.complete()
           else
@@ -61,24 +52,25 @@ return {
     version = "*",
     opts = {},
     keys = {
-      {
-        "<C-c>j",
-        "<Cmd>MultipleCursorsAddDown<CR>",
-        mode = { "n", "x" },
-        desc = "Add cursor below",
-      },
-      {
-        "<C-c>k",
-        "<Cmd>MultipleCursorsAddUp<CR>",
-        mode = { "n", "x" },
-        desc = "Add cursor above",
-      },
-      {
-        "<C-c>d",
-        "<Cmd>MultipleCursorsAddJumpNextMatch<CR>",
-        mode = { "n", "x" },
-        desc = "Add cursor next match",
-      },
+      -- TODO: Find a better key combination for these
+      -- {
+      --   "<C-Space-j>",
+      --   "<Cmd>MultipleCursorsAddDown<CR>",
+      --   mode = { "n", "x" },
+      --   desc = "Add cursor below",
+      -- },
+      -- {
+      --   "<C-Space-k>",
+      --   "<Cmd>MultipleCursorsAddUp<CR>",
+      --   mode = { "n", "x" },
+      --   desc = "Add cursor above",
+      -- },
+      -- {
+      --   "<C-Space-d>",
+      --   "<Cmd>MultipleCursorsAddJumpNextMatch<CR>",
+      --   mode = { "n", "x" },
+      --   desc = "Add cursor next match",
+      -- },
       {
         "<Leader>cs",
         "<Cmd>MultipleCursorsAddMatches<CR>",
