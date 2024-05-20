@@ -65,6 +65,7 @@ return {
         },
       },
       filesystem = {
+        use_libuv_file_watcher = false,
         filtered_items = {
           visible = true,
           hide_dotfiles = false,

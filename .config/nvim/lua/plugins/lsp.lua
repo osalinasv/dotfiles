@@ -20,7 +20,9 @@ return {
     "neovim/nvim-lspconfig",
     ---@class PluginLspOpts
     opts = {
-      ---@type lspconfig.options
+      inlay_hints = {
+        enabled = false,
+      },
       servers = {
         astro = {},
         biome = {},
