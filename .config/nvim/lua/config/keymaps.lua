@@ -26,7 +26,7 @@ local keymap = require("utils.keymap")
 keymap.nnoremap("<C-a>", "gg<S-v>G", { desc = "Select all" })
 keymap.nnoremap("<C-q>", LazyVim.ui.bufremove, { desc = "Close buffer" })
 keymap.nnoremap("<C-n>", "<cmd>enew<CR>", { desc = "Open new buffer" })
-keymap.inoremap("<S-Tab>", "<C-d>", { desc = "De-tab" }) -- TODO: Fix in neovim 0.10.0
+keymap.inoremap("<S-Tab>", "<C-d>", { desc = "De-tab" })
 -- vim extensions
 keymap.nnoremap("U", "<C-r>")
 -- movement
