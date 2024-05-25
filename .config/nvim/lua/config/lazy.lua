@@ -15,10 +15,6 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.coding.mini-surround" },
     { import = "plugins" },
   },
-  defaults = {
-    lazy = false,
-    version = false,
-  },
   install = {
     colorscheme = { "catppuccin" },
   },
@@ -29,18 +25,9 @@ require("lazy").setup({
       height = 0.8,
     },
   },
-  checker = {
-    enabled = true,
-    notify = false,
-  },
-  change_detection = {
-    enabled = true,
-    notify = false,
-  },
+  checker = { enabled = false },
+  change_detection = { enabled = false },
   performance = {
-    cache = {
-      enabled = true,
-    },
     rtp = {
       disabled_plugins = {
         "gzip",
