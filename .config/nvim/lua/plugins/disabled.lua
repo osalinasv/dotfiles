@@ -7,5 +7,4 @@ return {
   { "lukas-reineke/indent-blankline.nvim", enabled = false },
   { "nvim-treesitter/nvim-treesitter-context", enabled = false },
   { "nvimdev/dashboard-nvim", enabled = false },
-  { "stevearc/dressing.nvim", enabled = false },
 }
