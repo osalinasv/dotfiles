@@ -2,17 +2,19 @@ return {
   {
     "catppuccin/nvim",
     name = "catppuccin",
-    enabled = true,
-    lazy = false,
-    priority = 1000,
     opts = {
       flavour = "mocha",
     },
   },
   {
+    "oxfist/night-owl.nvim",
+    lazy = true,
+    priority = 1000,
+  },
+  {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "catppuccin",
+      colorscheme = "night-owl",
     },
   },
 }
