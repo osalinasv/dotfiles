@@ -1,5 +1,8 @@
 [Console]::OutputEncoding = [Text.Encoding]::UTF8
 
+Set-Variable MaximumHistoryCount 8192
+Set-PSReadLineOption -PredictionViewStyle ListView
+
 try {
   oh-my-posh init pwsh --config "$HOME\Code\dotfiles\theme.omp.json" | Invoke-Expression
   Import-Module git-aliases -DisableNameChecking

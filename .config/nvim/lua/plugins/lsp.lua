@@ -28,7 +28,7 @@ return {
         biome = {},
         cssls = {},
         html = {},
-        tailwindcss = {},
+        -- tailwindcss = {},
       },
     },
   },

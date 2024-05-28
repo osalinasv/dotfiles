@@ -55,25 +55,30 @@ return {
     version = "*",
     opts = {},
     keys = {
-      -- TODO: Find a better key combination for these
-      -- {
-      --   "<C-Space-j>",
-      --   "<Cmd>MultipleCursorsAddDown<CR>",
-      --   mode = { "n", "x" },
-      --   desc = "Add cursor below",
-      -- },
-      -- {
-      --   "<C-Space-k>",
-      --   "<Cmd>MultipleCursorsAddUp<CR>",
-      --   mode = { "n", "x" },
-      --   desc = "Add cursor above",
-      -- },
-      -- {
-      --   "<C-Space-d>",
-      --   "<Cmd>MultipleCursorsAddJumpNextMatch<CR>",
-      --   mode = { "n", "x" },
-      --   desc = "Add cursor next match",
-      -- },
+      {
+        "<C-M-j>",
+        "<Cmd>MultipleCursorsAddDown<CR>",
+        mode = { "n", "x" },
+        desc = "Add cursor below",
+      },
+      {
+        "<C-M-k>",
+        "<Cmd>MultipleCursorsAddUp<CR>",
+        mode = { "n", "x" },
+        desc = "Add cursor above",
+      },
+      {
+        "<C-M-h>",
+        "<Cmd>MultipleCursorsAddJumpNextMatch<CR>",
+        mode = { "n", "x" },
+        desc = "Add cursor next match",
+      },
+      {
+        "<C-LeftMouse>",
+        "<Cmd>MultipleCursorsMouseAddDelete<CR>",
+        mode = { "n", "i" },
+        desc = "Add or remove cursor",
+      },
       {
         "<Leader>cs",
         "<Cmd>MultipleCursorsAddMatches<CR>",
