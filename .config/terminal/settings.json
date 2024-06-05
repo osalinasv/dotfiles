@@ -4,22 +4,34 @@
     "actions": 
     [
         {
+            "command": "unbound",
+            "keys": "ctrl+c"
+        },
+        {
+            "command": "unbound",
+            "keys": "ctrl+v"
+        },
+        {
             "command": 
             {
                 "action": "copy",
                 "singleLine": false
-            },
-            "keys": "ctrl+c"
+            }
         },
         {
-            "command": "paste",
-            "keys": "ctrl+v"
+            "command": "paste"
         }
     ],
     "copyFormatting": "none",
     "copyOnSelect": false,
     "defaultProfile": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
     "initialRows": 60,
+    "newTabMenu": 
+    [
+        {
+            "type": "remainingProfiles"
+        }
+    ],
     "profiles": 
     {
         "defaults": 
@@ -28,7 +40,7 @@
             "font": 
             {
                 "face": "JetBrainsMono Nerd Font",
-                "size": 11
+                "size": 11.0
             }
         },
         "list": 
@@ -314,5 +326,6 @@
             "white": "#C0C0C0",
             "yellow": "#808000"
         }
-    ]
+    ],
+    "themes": []
 }
