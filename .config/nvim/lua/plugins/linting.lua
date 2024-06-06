@@ -6,7 +6,6 @@ return {
       typescript = { "biomejs" },
       javascriptreact = { "biomejs" },
       typescriptreact = { "biomejs" },
-      astro = { "eslint_d" },
     },
   },
 }

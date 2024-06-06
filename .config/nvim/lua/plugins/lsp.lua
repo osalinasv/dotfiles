@@ -3,11 +3,10 @@ return {
     "williamboman/mason.nvim",
     opts = {
       ensure_installed = {
-        "csharpier",
-        "eslint_d",
+        "biome",
+        "css-lsp",
+        "html-lsp",
         "prettier",
-        "shellcheck",
-        "stylua",
       },
       ui = {
         border = "rounded",
@@ -24,11 +23,9 @@ return {
         enabled = false,
       },
       servers = {
-        astro = {},
         biome = {},
         cssls = {},
         html = {},
-        -- tailwindcss = {},
       },
     },
   },
