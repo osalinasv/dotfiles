@@ -7,6 +7,7 @@ local opt = vim.opt
 vim.g.mapleader = " "
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
+vim.g.lazyvim_prettier_needs_config = false
 
 opt.backspace = { "start", "eol", "indent" }
 opt.breakindent = true
