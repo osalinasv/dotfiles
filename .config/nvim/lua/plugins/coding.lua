@@ -2,24 +2,14 @@ return {
   {
     "hrsh7th/nvim-cmp",
     keys = {
+      { "<Tab>", mode = { "i", "s" }, false },
       { "<S-Tab>", mode = { "i", "s" }, false },
     },
     ---@param opts cmp.ConfigSchema
     opts = function(_, opts)
-      local has_words_before = function()
-        unpack = unpack or table.unpack
-        local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-        return col ~= 0
-          and vim.api
-              .nvim_buf_get_lines(0, line - 1, line, true)[1]
-              :sub(col, col)
-              :match("%s")
-            == nil
-      end
-
       local cmp = require("cmp")
 
-      opts.mapping = {
+      opts.mapping = cmp.mapping.preset.insert({
         ["<C-j>"] = cmp.mapping.select_next_item({
           behavior = cmp.SelectBehavior.Insert,
         }),
@@ -29,7 +19,7 @@ return {
         ["<C-h>"] = cmp.mapping.scroll_docs(-4),
         ["<C-l>"] = cmp.mapping.scroll_docs(4),
         ["<C-q>"] = cmp.mapping.abort(),
-        ["<CR>"] = cmp.mapping.confirm({ select = true }),
+        ["<C-Space>"] = cmp.mapping.complete(),
         ["<Tab>"] = cmp.mapping(function(fallback)
           if cmp.visible() then
             cmp.confirm({ select = true })
@@ -37,17 +27,13 @@ return {
             vim.schedule(function()
               vim.snippet.jump(1)
             end)
-          elseif has_words_before() then
-            cmp.complete()
           else
             fallback()
           end
-        end, { "i", "s" }),
-        ["<C-CR>"] = function(fallback)
-          cmp.abort()
-          fallback()
-        end,
-      }
+        end),
+      })
+
+      return opts
     end,
   },
   {
