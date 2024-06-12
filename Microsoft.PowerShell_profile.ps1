@@ -10,9 +10,9 @@ try {
 
 # Aliases
 Set-Alias g git
-Set-Alias v nvim
 Set-Alias l ls
-Set-Alias c cd
+Set-Alias v nvim
+Set-Alias vim nvim
 
 # Zoxide
 try {
