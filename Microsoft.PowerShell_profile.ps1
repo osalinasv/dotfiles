@@ -1,20 +1,28 @@
 [Console]::OutputEncoding = [Text.Encoding]::UTF8
 
 Set-Variable MaximumHistoryCount 8192
-#Set-PSReadLineOption -PredictionViewStyle ListView
 
 try {
   oh-my-posh init pwsh --config "$HOME\Code\dotfiles\theme.omp.json" | Invoke-Expression
   Import-Module git-aliases -DisableNameChecking
 } finally {}
 
-# Aliases
 Set-Alias g git
 Set-Alias l ls
 Set-Alias v nvim
 Set-Alias vim nvim
 
-# Zoxide
+$Env:BAT_STYLE = "plain,numbers"
+Set-Alias cat bat
+
+function ** {
+  fzf --preview="bat --style=plain,numbers --color=always {}" --border=rounded $args
+}
+
+function la {
+  Get-ChildItem -Force $args
+}
+
 try {
   Invoke-Expression (& { (zoxide init powershell | Out-String) })
 } finally {}
