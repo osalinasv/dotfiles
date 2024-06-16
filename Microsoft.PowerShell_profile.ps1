@@ -7,8 +7,13 @@ try {
   Import-Module git-aliases -DisableNameChecking
 } finally {}
 
-Set-Alias g git
+Set-Alias c cd
 Set-Alias l ls
+Set-Alias cl clear
+
+Set-Alias g git
+Set-Alias gg lazygit
+
 Set-Alias v nvim
 Set-Alias vim nvim
 
