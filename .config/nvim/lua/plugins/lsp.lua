@@ -6,6 +6,7 @@ return {
         "biome",
         "css-lsp",
         "html-lsp",
+        "zls",
       },
       ui = {
         border = "rounded",
