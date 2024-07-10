@@ -26,9 +26,14 @@ opt.tabstop = 2
 opt.wrap = false
 
 opt.shell = vim.fn.executable("pwsh") and "pwsh" or "powershell"
-opt.shellcmdflag =
-  "-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;"
-opt.shellredir = "-RedirectStandardOutput %s -NoNewWindow -Wait"
-opt.shellpipe = "2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode"
+opt.shellcmdflag = table.concat({
+  "-NoLogo",
+  "-NoProfile",
+  "-NoProfileLoadTime",
+  "-ExecutionPolicy RemoteSigned",
+  "-Command ",
+}, " ")
+opt.shellredir = "| Out-File -Encoding UTF8"
+opt.shellpipe = "| Out-File -Encoding UTF8"
 opt.shellquote = ""
 opt.shellxquote = ""
