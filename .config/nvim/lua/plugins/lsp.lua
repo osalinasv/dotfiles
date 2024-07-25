@@ -26,6 +26,7 @@ return {
         biome = {},
         cssls = {},
         html = {},
+        zls = {},
       },
     },
   },

@@ -16,9 +16,12 @@ return {
         ["<C-l>"] = cmp.mapping.scroll_docs(4),
         ["<C-q>"] = cmp.mapping.abort(),
         ["<C-Space>"] = cmp.mapping.complete(),
+      })
+
+      opts.mapping = vim.tbl_extend("force", opts.mapping, {
         ["<Tab>"] = cmp.mapping(function(fallback)
           if cmp.visible() then
-            cmp.confirm({ select = false })
+            cmp.confirm({ select = true })
           elseif vim.snippet.active({ direction = 1 }) then
             vim.schedule(function()
               vim.snippet.jump(1)
@@ -26,11 +29,19 @@ return {
           else
             fallback()
           end
-        end),
+        end, { "i", "s" }),
+        ["<S-Tab>"] = cmp.mapping(function(fallback)
+          if vim.snippet.active({ direction = -1 }) then
+            vim.schedule(function()
+              vim.snippet.jump(-1)
+            end)
+          else
+            fallback()
+          end
+        end, { "i", "s" }),
       })
 
       opts.experimental.ghost_text = false
-
       return opts
     end,
   },
