@@ -1,4 +1,5 @@
 local wezterm = require("wezterm")
+local mux = wezterm.mux
 
 local config = wezterm.config_builder()
 
@@ -21,5 +22,9 @@ config.window_padding = {
 }
 
 config.default_prog = { "pwsh.exe", "-NoLogo" }
+
+wezterm.on("gui-startup", function()
+	mux.spawn_window({ width = 120, height = 40 })
+end)
 
 return config
