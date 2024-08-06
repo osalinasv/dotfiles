@@ -2,11 +2,6 @@
 
 Set-Variable MaximumHistoryCount 8192
 
-try {
-  oh-my-posh init pwsh --config "$HOME\Code\dotfiles\theme.omp.json" | Invoke-Expression
-  Import-Module git-aliases -DisableNameChecking
-} finally {}
-
 Set-Alias c cd
 Set-Alias l ls
 Set-Alias cl clear
@@ -30,5 +25,9 @@ function la {
 
 try {
   Invoke-Expression (& { (zoxide init powershell | Out-String) })
+} finally {}
+
+try {
+  Invoke-Expression (&starship init powershell)
 } finally {}
 
