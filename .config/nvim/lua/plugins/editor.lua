@@ -61,7 +61,6 @@ return {
         width = 35,
         mappings = {
           ["<Tab>"] = "toggle_node",
-          ["<C-g>"] = "none",
         },
       },
       filesystem = {

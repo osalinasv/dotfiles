@@ -4,14 +4,6 @@
 
 local Path = require("plenary.path")
 
-vim.api.nvim_create_autocmd("InsertLeavePre", {
-  callback = function()
-    if vim.snippet.active() then
-      vim.snippet.stop()
-    end
-  end,
-})
-
 vim.api.nvim_create_user_command("CopyFilePathToClipboard", function()
   local file_path = vim.api.nvim_buf_get_name(0)
   local current_dir = vim.fn.getcwd()

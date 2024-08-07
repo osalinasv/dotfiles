@@ -6,11 +6,6 @@
 -- buffers
 vim.keymap.del("n", "<S-h>")
 vim.keymap.del("n", "<S-l>")
--- terminal
-vim.keymap.del("n", "<C-/>")
-vim.keymap.del("n", "<C-_>")
-vim.keymap.del("t", "<C-/>")
-vim.keymap.del("t", "<C-_>")
 -- tabs
 vim.keymap.del("n", "<leader><tab>l")
 vim.keymap.del("n", "<leader><tab>f")
@@ -23,7 +18,7 @@ vim.keymap.del("n", "<leader><tab>[")
 local keymap = require("utils.keymap")
 
 -- ide-like
-keymap.nnoremap("<C-a>", "gg<S-v>G", { desc = "Select all" })
+-- keymap.nnoremap("<C-a>", "gg<S-v>G", { desc = "Select all" })
 keymap.nnoremap("<C-q>", LazyVim.ui.bufremove, { desc = "Close buffer" })
 keymap.nnoremap("<C-n>", "<cmd>enew<CR>", { desc = "Open new buffer" })
 keymap.inoremap("<S-Tab>", "<C-d>", { desc = "De-tab" })
