@@ -24,10 +24,9 @@ function la {
 }
 
 try {
-  Invoke-Expression (& { (zoxide init powershell | Out-String) })
-} finally {}
+  Import-Module git-aliases -DisableNameChecking
 
-try {
+  Invoke-Expression (& { (zoxide init powershell | Out-String) })
   Invoke-Expression (&starship init powershell)
 } finally {}
 
