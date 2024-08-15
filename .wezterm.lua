@@ -14,13 +14,6 @@ config.hide_tab_bar_if_only_one_tab = false
 config.tab_and_split_indices_are_zero_based = true
 config.tab_bar_at_bottom = true
 
-config.window_padding = {
-	left = "10px",
-	right = "10px",
-	top = "10px",
-	bottom = 0,
-}
-
 config.default_prog = { "pwsh.exe", "-NoLogo" }
 
 wezterm.on("gui-startup", function()
