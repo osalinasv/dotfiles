@@ -1,11 +1,5 @@
 return {
   {
-    "oxfist/night-owl.nvim",
-    enabled = false,
-    lazy = true,
-    priority = 1000,
-  },
-  {
     "folke/tokyonight.nvim",
     enabled = true,
     lazy = false,
