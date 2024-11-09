@@ -1,39 +1,27 @@
 return {
   {
     "hrsh7th/nvim-cmp",
-    keys = {
-      { "<Tab>", mode = { "i", "s" }, false },
-      { "<S-Tab>", mode = { "i", "s" }, false },
-    },
     ---@param opts cmp.ConfigSchema
     opts = function(_, opts)
       local cmp = require("cmp")
 
       opts.mapping = cmp.mapping.preset.insert({
-        ["<C-j>"] = cmp.mapping.select_next_item(),
-        ["<C-k>"] = cmp.mapping.select_prev_item(),
         ["<C-h>"] = cmp.mapping.scroll_docs(-4),
         ["<C-l>"] = cmp.mapping.scroll_docs(4),
+        ["<C-j>"] = cmp.mapping.select_next_item({
+          behavior = cmp.SelectBehavior.Insert,
+        }),
+        ["<C-k>"] = cmp.mapping.select_prev_item({
+          behavior = cmp.SelectBehavior.Insert,
+        }),
+        ["<C-Space>"] = cmp.mapping.complete(),
+        ["<CR>"] = LazyVim.cmp.confirm({ select = true }),
+        ["<C-y>"] = LazyVim.cmp.confirm({ select = true }),
+        ["<S-CR>"] = function(fallback)
+          cmp.abort()
+          fallback()
+        end,
         ["<C-q>"] = cmp.mapping.abort(),
-      })
-
-      opts.mapping = vim.tbl_extend("force", opts.mapping, {
-        ["<Tab>"] = cmp.mapping(function(fallback)
-          if cmp.visible() then
-            cmp.confirm({ select = true })
-          else
-            fallback()
-          end
-        end, { "i", "s" }),
-        ["<S-Tab>"] = cmp.mapping(function(fallback)
-          if vim.snippet.active({ direction = 1 }) then
-            vim.schedule(function()
-              vim.snippet.jump(1)
-            end)
-          else
-            fallback()
-          end
-        end, { "i", "s" }),
       })
 
       opts.experimental.ghost_text = false

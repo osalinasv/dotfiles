@@ -16,16 +16,16 @@ vim.keymap.del("n", "<leader><tab>[")
 
 -- CUSTOM MAPS
 local keymap = require("utils.keymap")
-
 -- ide-like
-keymap.nnoremap("<C-q>", LazyVim.ui.bufremove, { desc = "Close buffer" })
-keymap.nnoremap("<C-n>", "<cmd>enew<CR>", { desc = "Open new buffer" })
 keymap.inoremap("<S-Tab>", "<C-d>", { desc = "De-tab" })
+keymap.nnoremap("<C-q>", function()
+  Snacks.bufdelete()
+end, { desc = "Delete Buffer" })
 -- vim extensions
 keymap.nnoremap("U", "<C-r>")
 -- movement
-keymap.map("H", "^")
-keymap.map("L", "$")
+keymap.nmap("<S-h>", "^")
+keymap.nmap("<S-l>", "$")
 keymap.nnoremap("<C-u>", "<C-u>zz")
 keymap.nnoremap("<C-d>", "<C-d>zz")
 keymap.nnoremap("{", "{zz")
@@ -38,11 +38,7 @@ keymap.nnoremap("gg", "ggzz")
 keymap.nnoremap("<S-Tab>", "<cmd>bprevious<cr>", { desc = "Prev buffer" })
 keymap.nnoremap("<Tab>", "<cmd>bnext<cr>", { desc = "Next buffer" })
 -- terminal
-local lazyterm = function()
-  LazyVim.terminal(nil, { cwd = LazyVim.root() })
-end
-
-keymap.nnoremap("<C-t>", lazyterm, { desc = "Terminal (Root Dir)" })
+keymap.nnoremap("<C-t>", function()
+  Snacks.terminal()
+end, { desc = "Terminal (cwd)" })
 keymap.tnoremap("<C-t>", "<cmd>close<cr>", { desc = "Hide Terminal" })
--- windows
-keymap.nnoremap("<leader>wq", "<C-W>c", { desc = "Close window" })
