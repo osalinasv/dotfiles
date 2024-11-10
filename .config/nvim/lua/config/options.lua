@@ -14,7 +14,7 @@ opt.colorcolumn = "80"
 opt.conceallevel = 0
 opt.cursorline = true
 opt.expandtab = true
-opt.listchars:append({ lead = "·", trail = "·", nbsp = "+" })
+opt.listchars:append({ lead = "·", trail = "·", nbsp = "␣", tab = "› " })
 opt.mouse = "a"
 opt.scrolloff = 8
 opt.sidescrolloff = 8
