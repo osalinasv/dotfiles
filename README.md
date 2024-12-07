@@ -1,31 +1,32 @@
-## Dependencies
-
-- [Scoop](https://scoop.sh/)
-- [Dotnet SDK](https://dotnet.microsoft.com/en-us/download)
-
-```ps1
-# Enable executing remote scripts
-Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 ```
-
-## Install Packages and Tools
-
-```ps1
-# Terminal modules
-scoop install oh-my-posh git-aliases
-
-# Development packages
-scoop install git zoxide neovim lazygit 7zip
-
-# CLI tools for search and compile
-scoop install bat fd fzf less mingw ripgrep
-
-# Language runtimes
-scoop install bun go rustup
-
-# Csharp language server
-dotnet tool install --global csharp-ls
-
-# Csharp repl sandbox
-dotnet tool install --global csharprepl
+Name                   Version            Source Updated             Info
+----                   -------            ------ -------             ----
+7zip                   24.09              main   2024-12-05 20:37:55
+aws                    2.22.12            main   2024-12-05 20:38:12
+bat                    0.24.0             main   2024-05-29 20:37:53
+btop                   1.0.4              main   2024-05-29 20:42:28
+bun                    1.1.38             main   2024-12-05 20:38:17
+dark                   3.14               main   2024-06-28 19:08:10
+dotnet-sdk             9.0.101            main   2024-12-05 20:38:28
+eza                    0.20.11            main   2024-12-05 20:38:30
+fd                     10.2.0             main   2024-08-29 22:09:25
+fzf                    0.56.3             main   2024-11-18 20:51:48
+git                    2.47.1             main   2024-11-25 19:54:03
+git-aliases            0.3.6              extras 2024-07-09 18:00:06
+git-credential-manager 2.6.0              extras 2024-11-05 21:15:34
+go                     1.23.4             main   2024-12-05 20:38:51
+lazygit                0.44.1             extras 2024-10-01 22:18:11
+less                   668                main   2024-10-26 11:08:16
+mingw                  14.2.0-rt_v12-rev0 main   2024-10-01 22:18:31
+neovim                 0.10.2             main   2024-10-06 00:46:34
+nvm                    1.1.12             main   2024-05-29 21:04:59
+php8.2                 8.2.26             php    2024-12-05 20:38:58
+pipx                   1.7.1              main   2024-11-12 20:03:31
+pnpm                   9.14.4             main   2024-12-05 20:39:00
+python                 3.13.1             main   2024-12-05 20:39:19
+ripgrep                14.1.1             main   2024-10-01 22:18:53
+rustup                 1.27.1             main   2024-05-29 21:06:04
+starship               1.21.1             main   2024-10-26 11:08:19
+zig                    0.13.0             main   2024-06-19 22:32:58
+zoxide                 0.9.6              main   2024-10-01 22:18:53
 ```
