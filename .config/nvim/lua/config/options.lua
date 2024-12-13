@@ -25,7 +25,7 @@ opt.tabstop = 2
 opt.wrap = false
 
 if vim.uv.os_uname().sysname:find("Windows") then
-  opt.shell = vim.fn.executable("pwsh") and "pwsh" or "powershell"
+  opt.shell = "pwsh"
   opt.shellcmdflag = table.concat({
     "-NoLogo",
     "-NoProfile",
