@@ -1,32 +1,17 @@
 return {
   {
-    "hrsh7th/nvim-cmp",
-    ---@param opts cmp.ConfigSchema
-    opts = function(_, opts)
-      local cmp = require("cmp")
-
-      opts.mapping = cmp.mapping.preset.insert({
-        ["<C-h>"] = cmp.mapping.scroll_docs(-4),
-        ["<C-l>"] = cmp.mapping.scroll_docs(4),
-        ["<C-j>"] = cmp.mapping.select_next_item({
-          behavior = cmp.SelectBehavior.Insert,
-        }),
-        ["<C-k>"] = cmp.mapping.select_prev_item({
-          behavior = cmp.SelectBehavior.Insert,
-        }),
-        ["<C-Space>"] = cmp.mapping.complete(),
-        ["<CR>"] = LazyVim.cmp.confirm({ select = true }),
-        ["<C-y>"] = LazyVim.cmp.confirm({ select = true }),
-        ["<S-CR>"] = function(fallback)
-          cmp.abort()
-          fallback()
-        end,
-        ["<C-q>"] = cmp.mapping.abort(),
-      })
-
-      opts.experimental.ghost_text = false
-      return opts
-    end,
+    "saghen/blink.cmp",
+    opts = {
+      keymap = {
+        preset = "default",
+        ["<C-k>"] = { "select_prev", "fallback" },
+        ["<C-j>"] = { "select_next", "fallback" },
+        ["<C-h>"] = { "scroll_documentation_up", "fallback" },
+        ["<C-l>"] = { "scroll_documentation_down", "fallback" },
+        ["<C-q>"] = { "hide", "fallback" },
+        ["<CR>"] = { "accept", "fallback" },
+      },
+    },
   },
   {
     "brenton-leighton/multiple-cursors.nvim",
