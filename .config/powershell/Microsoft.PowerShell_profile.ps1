@@ -6,7 +6,11 @@ $Env:BAT_STYLE = "plain,numbers"
 Set-Variable MaximumHistoryCount 8192
 
 if (Get-Command eza -ErrorAction SilentlyContinue) {
-  Set-Alias ls eza
+  function _run_eza {
+    eza --icons=always $args
+  }
+
+  Set-Alias ls _run_eza
 }
 
 if (Get-Command bat -ErrorAction SilentlyContinue) {
@@ -18,9 +22,11 @@ Set-Alias gg lazygit
 
 Set-Alias vim nvim
 
-function ** {
+function _run_fzf {
   fzf --preview="bat --style=plain,numbers --color=always {}" --border=rounded $args
 }
+
+Set-Alias ** _run_fzf
 
 try {
   Import-Module git-aliases -DisableNameChecking
