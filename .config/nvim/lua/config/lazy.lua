@@ -39,15 +39,7 @@ require("lazy").setup({
   install = {
     colorscheme = { "tokyonight" },
   },
-  ui = {
-    border = "rounded",
-    size = {
-      width = 0.8,
-      height = 0.8,
-    },
-  },
   checker = { enabled = false },
-  change_detection = { enabled = false },
   performance = {
     rtp = {
       disabled_plugins = {

@@ -1,7 +1,6 @@
 [Console]::OutputEncoding = [Text.Encoding]::UTF8
 
 $Env:BAT_STYLE = "plain,numbers"
-#$Env:BAT_THEME = "tokyonight_night"
 
 Set-Variable MaximumHistoryCount 8192
 
