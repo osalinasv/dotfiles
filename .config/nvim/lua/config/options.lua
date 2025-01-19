@@ -5,8 +5,6 @@
 local opt = vim.opt
 
 vim.g.lazyvim_prettier_needs_config = false
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
 vim.g.mapleader = " "
 vim.g.snacks_animate = false
 

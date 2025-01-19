@@ -19,31 +19,25 @@ return {
     opts = {},
     keys = {
       {
-        "<C-M-j>",
+        "<C-c-j>",
         "<Cmd>MultipleCursorsAddDown<CR>",
         mode = { "n", "x" },
         desc = "Add cursor below",
       },
       {
-        "<C-M-k>",
+        "<C-c-k>",
         "<Cmd>MultipleCursorsAddUp<CR>",
         mode = { "n", "x" },
         desc = "Add cursor above",
       },
       {
-        "<C-M-h>",
+        "<C-c-n>",
         "<Cmd>MultipleCursorsAddJumpNextMatch<CR>",
         mode = { "n", "x" },
         desc = "Add cursor next match",
       },
       {
-        "<C-LeftMouse>",
-        "<Cmd>MultipleCursorsMouseAddDelete<CR>",
-        mode = { "n", "i" },
-        desc = "Add or remove cursor",
-      },
-      {
-        "<Leader>cs",
+        "<C-c-w>",
         "<Cmd>MultipleCursorsAddMatches<CR>",
         mode = { "n", "x" },
         desc = "Add cursors to current word",

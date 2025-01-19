@@ -6,13 +6,6 @@
 -- buffers
 vim.keymap.del("n", "<S-h>")
 vim.keymap.del("n", "<S-l>")
--- tabs
-vim.keymap.del("n", "<leader><tab>l")
-vim.keymap.del("n", "<leader><tab>f")
-vim.keymap.del("n", "<leader><tab><tab>")
-vim.keymap.del("n", "<leader><tab>]")
-vim.keymap.del("n", "<leader><tab>d")
-vim.keymap.del("n", "<leader><tab>[")
 
 -- CUSTOM MAPS
 local keymap = require("utils.keymap")
