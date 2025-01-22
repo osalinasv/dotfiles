@@ -4,6 +4,7 @@
 
 local opt = vim.opt
 
+vim.g.lazyvim_picker = "snacks"
 vim.g.lazyvim_prettier_needs_config = false
 vim.g.mapleader = " "
 vim.g.snacks_animate = false
