@@ -10,6 +10,17 @@ return {
           },
         },
       },
+      sources = {
+        buffers = {
+          hidden = true,
+        },
+        files = {
+          hidden = true,
+        },
+        grep = {
+          hidden = true,
+        },
+      },
     },
   },
 }
