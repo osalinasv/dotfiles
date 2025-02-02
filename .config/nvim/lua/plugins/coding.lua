@@ -18,29 +18,23 @@ return {
     version = "*",
     opts = {},
     keys = {
+      -- {
+      --   "<C-c-j>",
+      --   "<Cmd>MultipleCursorsAddDown<CR>",
+      --   mode = { "n", "x" },
+      --   desc = "Add cursor below",
+      -- },
+      -- {
+      --   "<C-c-k>",
+      --   "<Cmd>MultipleCursorsAddUp<CR>",
+      --   mode = { "n", "x" },
+      --   desc = "Add cursor above",
+      -- },
       {
-        "<C-c-j>",
-        "<Cmd>MultipleCursorsAddDown<CR>",
-        mode = { "n", "x" },
-        desc = "Add cursor below",
-      },
-      {
-        "<C-c-k>",
-        "<Cmd>MultipleCursorsAddUp<CR>",
-        mode = { "n", "x" },
-        desc = "Add cursor above",
-      },
-      {
-        "<C-c-n>",
+        "<C-n>",
         "<Cmd>MultipleCursorsAddJumpNextMatch<CR>",
         mode = { "n", "x" },
         desc = "Add cursor next match",
-      },
-      {
-        "<C-c-w>",
-        "<Cmd>MultipleCursorsAddMatches<CR>",
-        mode = { "n", "x" },
-        desc = "Add cursors to current word",
       },
     },
   },
