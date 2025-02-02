@@ -9,7 +9,8 @@ local config = wezterm.config_builder()
 config.font = wezterm.font("JetBrains Mono")
 config.font_size = IS_DARWIN and 15 or 12
 
-config.color_scheme = "Tokyo Night"
+config.color_scheme = "Kanagawa (Gogh)"
+config.color_scheme_dirs = { "~/.config/wezterm/colors" }
 
 config.enable_tab_bar = true
 config.use_fancy_tab_bar = false

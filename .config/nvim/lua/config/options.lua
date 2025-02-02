@@ -9,6 +9,8 @@ vim.g.lazyvim_prettier_needs_config = false
 vim.g.mapleader = " "
 vim.g.snacks_animate = false
 
+vim.o.background = ""
+
 opt.breakindent = true
 opt.colorcolumn = "80"
 opt.conceallevel = 0
