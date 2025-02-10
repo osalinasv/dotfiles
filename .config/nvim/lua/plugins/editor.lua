@@ -1,17 +1,6 @@
 return {
   {
     "nvim-neo-tree/neo-tree.nvim",
-    keys = {
-      {
-        "<C-e>",
-        function()
-          require("neo-tree.command").execute({
-            toggle = true,
-          })
-        end,
-        desc = "Toggle explorer",
-      },
-    },
     opts = {
       window = {
         position = "right",

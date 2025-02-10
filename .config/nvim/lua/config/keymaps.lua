@@ -11,9 +11,13 @@ vim.keymap.del("n", "<S-l>")
 local keymap = require("utils.keymap")
 -- ide-like
 keymap.inoremap("<S-Tab>", "<C-d>", { desc = "De-tab" })
-keymap.nnoremap("<C-q>", function()
-  Snacks.bufdelete()
-end, { desc = "Delete Buffer" })
+-- neovim extensions
+keymap.nnoremap("<C-q>", "<leader>bd", { remap = true, desc = "Delete Buffer" })
+keymap.nnoremap(
+  "<C-e>",
+  "<leader>e",
+  { remap = true, desc = "Explorer (Root Dir)" }
+)
 -- vim extensions
 keymap.nnoremap("U", "<C-r>")
 -- movement
@@ -31,7 +35,9 @@ keymap.nnoremap("gg", "ggzz")
 keymap.nnoremap("<S-Tab>", "<cmd>bprevious<cr>", { desc = "Prev buffer" })
 keymap.nnoremap("<Tab>", "<cmd>bnext<cr>", { desc = "Next buffer" })
 -- terminal
-keymap.nnoremap("<C-t>", function()
-  Snacks.terminal()
-end, { desc = "Terminal (cwd)" })
+keymap.nnoremap(
+  "<C-t>",
+  "<leader>fT",
+  { remap = true, desc = "Terminal (cwd)" }
+)
 keymap.tnoremap("<C-t>", "<cmd>close<cr>", { desc = "Hide Terminal" })
