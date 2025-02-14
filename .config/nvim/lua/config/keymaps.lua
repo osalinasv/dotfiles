@@ -13,11 +13,7 @@ local keymap = require("utils.keymap")
 keymap.inoremap("<S-Tab>", "<C-d>", { desc = "De-tab" })
 -- neovim extensions
 keymap.nnoremap("<C-q>", "<leader>bd", { remap = true, desc = "Delete Buffer" })
-keymap.nnoremap(
-  "<C-e>",
-  "<leader>e",
-  { remap = true, desc = "Explorer (Root Dir)" }
-)
+keymap.nnoremap("<C-e>", "<leader>E", { remap = true, desc = "Explorer (cwd)" })
 -- vim extensions
 keymap.nnoremap("U", "<C-r>")
 -- movement

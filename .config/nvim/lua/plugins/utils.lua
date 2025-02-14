@@ -21,6 +21,11 @@ return {
         grep = {
           hidden = true,
         },
+        explorer = {
+          hidden = true,
+          jump = { close = true },
+          layout = { layout = { position = "right" } },
+        },
       },
     },
   },
