@@ -18,8 +18,13 @@ if (Get-Command bat -ErrorAction SilentlyContinue) {
 
 Set-Alias g git
 Set-Alias gg lazygit
-
+Set-Alias v nvim
 Set-Alias vim nvim
+Set-Alias d docker
+Set-Alias dd lazydocker
+Set-Alias dc docker-compose
+Set-Alias k kubectl
+Set-Alias dn dotnet
 
 if (Get-Command fzf -ErrorAction SilentlyContinue) {
   function _run_fzf {
