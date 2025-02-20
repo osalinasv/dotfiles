@@ -10,7 +10,7 @@ vim.g.mapleader = " "
 vim.g.snacks_animate = false
 
 vim.o.background = ""
-vim.o.ignorecase = true
+vim.o.smartcase = true
 
 opt.breakindent = true
 opt.colorcolumn = "80"
