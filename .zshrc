@@ -1,14 +1,19 @@
 alias zsh-reload="source ~/.zshrc"
 alias zsh-edit="nvim ~/.zshrc"
 
-# history setup
+# basic setup
 HISTFILE=$HOME/.zhistory
 SAVEHIST=1000
 HISTSIZE=999
-setopt share_history
-setopt hist_expire_dups_first
-setopt hist_ignore_dups
-setopt hist_verify
+
+setopt share_history hist_expire_dups_first hist_ignore_dups hist_verify
+setopt autocd extendedglob nomatch menucomplete
+setopt interactive_comments
+
+unsetopt BEEP
+
+stty stop undef
+zle_highlight=('paste:none')
 
 # completion using arrow keys (based on history)
 bindkey '^[[A' history-search-backward
@@ -26,36 +31,19 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 
 # ---- Aliases ----
 
-alias la="ls -a"
 alias g="git"
 alias gg="lazygit"
+alias v="nvim"
+alias vim="nvim"
+alias d="docker"
+alias dd="lazydocker"
+alias dc="docker-compose"
+alias k="kubectl"
+alias kk="k9s"
+alias dn="dotnet"
 
 # ---- FZF ----
 eval "$(fzf --zsh)"
-
-export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS \
-  --highlight-line \
-  --info=inline-right \
-  --ansi \
-  --layout=reverse \
-  --border=none
-  --color=bg+:#283457 \
-  --color=bg:#16161e \
-  --color=border:#27a1b9 \
-  --color=fg:#c0caf5 \
-  --color=gutter:#16161e \
-  --color=header:#ff9e64 \
-  --color=hl+:#2ac3de \
-  --color=hl:#2ac3de \
-  --color=info:#545c7e \
-  --color=marker:#ff007c \
-  --color=pointer:#ff007c \
-  --color=prompt:#2ac3de \
-  --color=query:#c0caf5:regular \
-  --color=scrollbar:#27a1b9 \
-  --color=separator:#ff9e64 \
-  --color=spinner:#ff007c \
-"
 
 # use fd instead of fzf
 export FZF_DEFAULT_COMMAND="fd --hidden --strip-cwd-prefix --exclude .git"
@@ -75,7 +63,7 @@ _fzf_compgen_dir() {
 }
 
 # ---- Bat (better cat) ----
-export BAT_THEME=tokyonight_night
+export BAT_STYLE="plain,numbers"
 alias cat="bat"
 
 # ---- Eza (better ls) -----
@@ -85,22 +73,23 @@ alias ls="eza --icons=always"
 eval "$(zoxide init zsh)"
 alias cd="z"
 
-# ---- Starship ----
-eval "$(starship init zsh)"
-
-# ---- ZI ----
-if [[ ! -f $HOME/.zi/bin/zi.zsh ]]; then
-  print -P "%F{33}▓▒░ %F{160}Installing (%F{33}z-shell/zi%F{160})…%f"
-  command mkdir -p "$HOME/.zi" && command chmod go-rwX "$HOME/.zi"
-  command git clone -q --depth=1 --branch "main" https://github.com/z-shell/zi "$HOME/.zi/bin" && \
-    print -P "%F{33}▓▒░ %F{34}Installation successful.%f%b" || \
-    print -P "%F{160}▓▒░ The clone has failed.%f%b"
+# ---- Zinit ----
+if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
+    print -P "%F{33} %F{220}Installing %F{33}ZDHARMA-CONTINUUM%F{220} Initiative Plugin Manager (%F{33}zdharma-continuum/zinit%F{220})…%f"
+    command mkdir -p "$HOME/.local/share/zinit" && command chmod g-rwX "$HOME/.local/share/zinit"
+    command git clone https://github.com/zdharma-continuum/zinit "$HOME/.local/share/zinit/zinit.git" && \
+        print -P "%F{33} %F{34}Installation successful.%f%b" || \
+        print -P "%F{160} The clone has failed.%f%b"
 fi
 
-source "$HOME/.zi/bin/zi.zsh"
+source "$HOME/.local/share/zinit/zinit.git/zinit.zsh"
+autoload -Uz _zinit
+(( ${+_comps} )) && _comps[zinit]=_zinit
 
-autoload -Uz _zi
-(( ${+_comps} )) && _comps[zi]=_zi
+zinit light zsh-users/zsh-completions
+zinit light zsh-users/zsh-autosuggestions
+zinit light zsh-users/zsh-syntax-highlighting
+zinit snippet https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/git/git.plugin.zsh
 
-zi snippet https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/git/git.plugin.zsh
-autoload -Uz zicompinit && zicompinit
+# ---- Starship ----
+eval "$(starship init zsh)"
