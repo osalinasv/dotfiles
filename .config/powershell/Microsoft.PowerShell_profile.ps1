@@ -1,7 +1,5 @@
 [Console]::OutputEncoding = [Text.Encoding]::UTF8
 
-$Env:BAT_STYLE = "plain,numbers"
-
 Set-Variable MaximumHistoryCount 8192
 
 if (Get-Command eza -ErrorAction SilentlyContinue) {
@@ -13,6 +11,8 @@ if (Get-Command eza -ErrorAction SilentlyContinue) {
 }
 
 if (Get-Command bat -ErrorAction SilentlyContinue) {
+  $Env:BAT_STYLE = "plain,numbers"
+
   Set-Alias cat bat
 }
 
@@ -24,15 +24,8 @@ Set-Alias d docker
 Set-Alias dd lazydocker
 Set-Alias dc docker-compose
 Set-Alias k kubectl
+Set-Alias kk k9s
 Set-Alias dn dotnet
-
-if (Get-Command fzf -ErrorAction SilentlyContinue) {
-  function _run_fzf {
-    fzf --preview="bat --style=plain,numbers --color=always {}" --border=rounded $args
-  }
-
-  Set-Alias ** _run_fzf
-}
 
 function git-cleanup {
   git clean -dfx .
@@ -132,22 +125,28 @@ function git-rebase {
       throw "Failed to rebase $currentBranch onto $branch"
     }
   } catch {
-    Write-Host $_ -ForegroundColor DarkRed
+    Write-Host "git-rebase: $_" -ForegroundColor DarkRed
   } finally {
     if ($stashed -and $canPop) {
       git stash pop
     } elseif ($stashed) {
-      Write-Host "Auto-stash remains pending due to error" -ForegroundColor DarkYellow
+      Write-Host "git-rebase: Auto-stash remains pending due to error" -ForegroundColor DarkYellow
     }
   }
 }
 
 try {
   Import-Module git-aliases -DisableNameChecking
+} finally {}
 
+try {
   Invoke-Expression (& { (zoxide init powershell | Out-String) })
-  Set-Alias cd z -Option AllScope
 
+  Remove-Item -Force Alias:cd
+  Set-Alias cd z -Force -Option Constant,AllScope
+} finally {}
+
+try {
   Invoke-Expression (&starship init powershell)
 } finally {}
 
