@@ -140,10 +140,10 @@ try {
 } finally {}
 
 try {
-  Invoke-Expression (& { (zoxide init powershell | Out-String) })
+  Invoke-Expression (& { (zoxide init powershell --cmd cd | Out-String) })
 
-  Remove-Item -Force Alias:cd
-  Set-Alias cd z -Force -Option Constant,AllScope
+  # Remove-Item -Force Alias:cd
+  # Set-Alias cd z -Force -Option Constant,AllScope
 } finally {}
 
 try {
