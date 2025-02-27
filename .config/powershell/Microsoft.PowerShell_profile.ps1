@@ -140,13 +140,10 @@ try {
 } finally {}
 
 try {
-  Invoke-Expression (& { (zoxide init powershell --cmd cd | Out-String) })
-
-  # Remove-Item -Force Alias:cd
-  # Set-Alias cd z -Force -Option Constant,AllScope
+  Invoke-Expression (&starship init powershell)
 } finally {}
 
 try {
-  Invoke-Expression (&starship init powershell)
+  Invoke-Expression (& { (zoxide init powershell --cmd cd | Out-String) })
 } finally {}
 
