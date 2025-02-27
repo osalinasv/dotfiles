@@ -11,6 +11,7 @@ vim.keymap.del("n", "<S-l>")
 local keymap = require("utils.keymap")
 -- ide-like
 keymap.inoremap("<S-Tab>", "<C-d>", { desc = "De-tab" })
+keymap.nnoremap("<C-a>", "ggVG", { desc = "Select all" })
 -- neovim extensions
 keymap.nnoremap("<C-q>", "<leader>bd", { remap = true, desc = "Delete Buffer" })
 keymap.nnoremap("<C-e>", "<leader>E", { remap = true, desc = "Explorer (cwd)" })
