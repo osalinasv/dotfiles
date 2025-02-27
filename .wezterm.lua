@@ -10,7 +10,6 @@ config.font = wezterm.font("JetBrains Mono")
 config.font_size = IS_DARWIN and 15 or 12
 
 config.color_scheme = "Kanagawa (Gogh)"
-config.color_scheme_dirs = { "~/.config/wezterm/colors" }
 
 config.enable_tab_bar = true
 config.use_fancy_tab_bar = false
@@ -22,7 +21,7 @@ config.use_dead_keys = false
 config.disable_default_key_bindings = true
 
 if IS_WINDOWS then
-  config.default_prog = { "pwsh.exe", "-NoLogo", "-NoProfileLoadTime" }
+  config.default_prog = { "pwsh.exe", "-NoLogo" }
 end
 
 config.keys = {
@@ -99,8 +98,8 @@ config.keys = {
 }
 
 wezterm.on("gui-startup", function()
-  local height = IS_DARWIN and 40 or 50
-  mux.spawn_window({ width = 120, height = height })
+  local height = IS_DARWIN and 40 or 52
+  mux.spawn_window({ width = 128, height = height })
 end)
 
 return config
