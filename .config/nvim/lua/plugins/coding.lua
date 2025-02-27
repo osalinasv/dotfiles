@@ -3,13 +3,12 @@ return {
     "saghen/blink.cmp",
     opts = {
       keymap = {
-        preset = "default",
+        preset = "super-tab",
         ["<C-k>"] = { "select_prev", "fallback" },
         ["<C-j>"] = { "select_next", "fallback" },
-        ["<C-h>"] = { "scroll_documentation_up", "fallback" },
-        ["<C-l>"] = { "scroll_documentation_down", "fallback" },
+        ["<C-u>"] = { "scroll_documentation_up", "fallback" },
+        ["<C-d>"] = { "scroll_documentation_down", "fallback" },
         ["<C-q>"] = { "hide", "fallback" },
-        ["<CR>"] = { "accept", "fallback" },
       },
     },
   },
