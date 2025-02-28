@@ -23,7 +23,6 @@ return {
         },
         explorer = {
           hidden = true,
-          jump = { close = true },
           layout = { layout = { position = "right" } },
         },
       },
