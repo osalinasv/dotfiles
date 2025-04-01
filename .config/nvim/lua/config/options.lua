@@ -9,7 +9,6 @@ vim.g.lazyvim_prettier_needs_config = false
 vim.g.mapleader = " "
 vim.g.snacks_animate = false
 
-vim.o.background = ""
 vim.o.smartcase = true
 
 opt.breakindent = true
