@@ -16,19 +16,7 @@ return {
     opts = {},
     keys = {
       {
-        "<M-J>",
-        "<Cmd>MultipleCursorsAddDown<CR>",
-        mode = { "n", "x" },
-        desc = "Add cursor below",
-      },
-      {
-        "<M-K>",
-        "<Cmd>MultipleCursorsAddUp<CR>",
-        mode = { "n", "x" },
-        desc = "Add cursor above",
-      },
-      {
-        "<M-N>",
+        "<C-c>",
         "<Cmd>MultipleCursorsAddJumpNextMatch<CR>",
         mode = { "n", "x" },
         desc = "Add cursor next match",
