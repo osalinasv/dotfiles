@@ -2,10 +2,13 @@ alias zsh-reload="source ~/.zshrc"
 alias zsh-edit="nvim ~/.zshrc"
 
 # basic setup
-HISTFILE=$HOME/.zhistory
+HISTFILE=$HOME/.histfile
 HISTSIZE=5000
 SAVEHIST=$HISTSIZE
 HISTDUP=erase
+
+export EDITOR='nvim'
+export MANPAGER='nvim +Man!'
 
 setopt appendhistory
 setopt sharehistory
@@ -22,18 +25,28 @@ setopt interactive_comments
 
 unsetopt BEEP
 
-stty stop undef
-zle_highlight=('paste:none')
-
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 zstyle ':completion:*' menu no
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
-# completion using arrow keys (based on history)
+# keybinds
+bindkey '^[[3~' delete-char
+
+# completion using arrow keys (based on history partial search)
 bindkey '^[[A' history-search-backward
 bindkey '^[[B' history-search-forward
+
+# Word navigation (Control+Arrow)
+bindkey '^[[1;5D' backward-word
+bindkey '^[[1;5C' forward-word
+
+# Line start/end (Control+Up/Down)
+bindkey '^[[1;5A' beginning-of-line
+bindkey '^[[1;5B' end-of-line
+bindkey '^[[H' beginning-of-line
+bindkey '^[[F' end-of-line
 
 # ---- Node ----
 export NVM_DIR="$HOME/.nvm"
@@ -41,9 +54,15 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # ---- Bun ----
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
-[ -s "/Users/osalinasv/.bun/_bun" ] && source "/Users/osalinasv/.bun/_bun"
+# export BUN_INSTALL="$HOME/.bun"
+# export PATH="$BUN_INSTALL/bin:$PATH"
+# [ -s "/Users/osalinasv/.bun/_bun" ] && source "/Users/osalinasv/.bun/_bun"
+
+# ---- Cargo ----
+. "$HOME/.cargo/env"
+
+# Added by zap installation script
+PATH=$PATH:$HOME/.local/bin/
 
 # ---- Aliases ----
 
@@ -90,17 +109,10 @@ eval "$(zoxide init zsh)"
 alias cd="z"
 
 # ---- Zinit ----
-if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
-    print -P "%F{33} %F{220}Installing %F{33}ZDHARMA-CONTINUUM%F{220} Initiative Plugin Manager (%F{33}zdharma-continuum/zinit%F{220})…%f"
-    command mkdir -p "$HOME/.local/share/zinit" && command chmod g-rwX "$HOME/.local/share/zinit"
-    command git clone https://github.com/zdharma-continuum/zinit "$HOME/.local/share/zinit/zinit.git" && \
-        print -P "%F{33} %F{34}Installation successful.%f%b" || \
-        print -P "%F{160} The clone has failed.%f%b"
-fi
-
-source "$HOME/.local/share/zinit/zinit.git/zinit.zsh"
-autoload -Uz _zinit
-(( ${+_comps} )) && _comps[zinit]=_zinit
+ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
+[ ! -d $ZINIT_HOME ] && mkdir -p "$(dirname $ZINIT_HOME)"
+[ ! -d $ZINIT_HOME/.git ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+source "${ZINIT_HOME}/zinit.zsh"
 
 zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
@@ -109,16 +121,15 @@ zinit light zsh-users/zsh-history-substring-search
 
 zinit snippet OMZL::git.zsh
 zinit snippet OMZP::git
-zinit snippet OMZP::sudo
-zinit snippet OMZP::command-not-found
+# zinit snippet OMZP::command-not-found
 
-zinit ice wait atload'_history_substring_search_config'
-
-autoload -Uz compinit && compinit
-zinit cdreplay -q
+zinit ice wait atload '_history_substring_search_config'
 
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
+
+autoload -Uz compinit
+compinit
 
 # ---- Starship ----
 eval "$(starship init zsh)"
