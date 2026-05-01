@@ -2,10 +2,10 @@ alias zsh-reload="source ~/.zshrc"
 alias zsh-edit="nvim ~/.zshrc"
 
 # basic setup
-HISTFILE=$HOME/.histfile
-HISTSIZE=5000
-SAVEHIST=$HISTSIZE
-HISTDUP=erase
+export HISTFILE=$HOME/.histfile
+export HISTSIZE=5000
+export SAVEHIST=$HISTSIZE
+export HISTDUP=erase
 
 export EDITOR='nvim'
 export MANPAGER='nvim +Man!'
@@ -53,6 +53,13 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+# ---- PNPM ----
+export PNPM_HOME="/home/omar/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+
 # ---- Bun ----
 # export BUN_INSTALL="$HOME/.bun"
 # export PATH="$BUN_INSTALL/bin:$PATH"
@@ -61,8 +68,8 @@ export NVM_DIR="$HOME/.nvm"
 # ---- Cargo ----
 . "$HOME/.cargo/env"
 
-# Added by zap installation script
-PATH=$PATH:$HOME/.local/bin/
+# ---- Local Bin ----
+export PATH="$PATH:$HOME/.local/bin/"
 
 # ---- Aliases ----
 
